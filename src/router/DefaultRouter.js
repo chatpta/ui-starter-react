@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 
 import HomePage from "../views/HomePage";
-import Users from "../views/Users";
-import Items from "../views/Items";
+import UsersPage from "../views/UsersPage";
+import ItemsPage from "../views/ItemsPage";
 
 
 function AppRouter() {
@@ -15,8 +15,8 @@ function AppRouter() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={ <HomePage/> }/>
-                <Route path="users" element={ <Items/> }/>
-                <Route path="items" element={ <Users/> }/>
+                <Route path="users" element={ <ItemsPage/> }/>
+                <Route path="items" element={ <UsersPage/> }/>
             </Routes>
         </BrowserRouter>
     );
