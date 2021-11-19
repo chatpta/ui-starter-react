@@ -7,7 +7,7 @@ import './App/index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
-import DefaultThemeProvider from "./Theme/DefaultThemeProvider";
+import DefaultThemeProvider from "./theme/DefaultThemeProvider";
 
 
 ReactDOM.render(
