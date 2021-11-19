@@ -7,13 +7,16 @@ import './App/index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
+import DefaultThemeProvider from "./Theme/DefaultThemeProvider";
 
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={ store }>
-            <CssBaseline/>
-            <App/>
+            <DefaultThemeProvider>
+                <CssBaseline/>
+                <App/>
+            </DefaultThemeProvider>
         </Provider>
     </React.StrictMode>,
     document.getElementById( 'root' )
