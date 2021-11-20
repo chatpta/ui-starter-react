@@ -1,53 +1,27 @@
-import TestRenderer from "react-test-renderer";
-import { MemoryRouter } from 'react-router-dom'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import LinkCH from "../../../components/LinkCH/LinkCH";
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 
 
-test( 'LinkCH renders', () => {
+import LinkCH from "../../../components/LinkCH/LinkCH";
+
+
+test( 'LinkCH render and hover', () => {
     render( <LinkCH page="/items">Items page</LinkCH>, { wrapper: MemoryRouter } );
 
-    expect( screen.getByText( /items/i ) ).toBeInTheDocument();
+    let LinkElement = screen.getByText( /items/i );
 
-    console.log( screen.getByText( /items/i ).classList.toString() )
+    // Before hover
+    expect( LinkElement ).toBeInTheDocument();
+    expect( LinkElement.classList ).toEqual( expect.objectContaining( [ 'normal' ] ) );
+    expect( LinkElement.classList ).toEqual( expect.not.objectContaining( [ 'hovered' ] ) );
 
-    userEvent.hover( screen.getByText( /items/i ) );
+    // Simulate hover.
+    userEvent.hover( LinkElement );
 
-    console.log( screen.getByText( /items/i ).classList.toString() )
-
-    userEvent.click( screen.getByText( /items/i ) );
+    // After hover
+    expect( LinkElement.classList ).toEqual( expect.not.objectContaining( [ 'normal' ] ) );
+    expect( LinkElement.classList ).toEqual( expect.objectContaining( [ 'hovered' ] ) );
 
 } );
-
-// test( 'LinkCH changes the class when hovered', () => {
-//     const component = TestRenderer.create(
-//         <BrowserRouter>
-//             <LinkCH page="/items">Items page</LinkCH>,
-//         </BrowserRouter>
-//     );
-//     let tree = component.toJSON();
-//     expect( tree ).toMatchSnapshot();
-//     console.log(tree)
-//
-//     TestRenderer.act( () => {
-//         // manually trigger the callback
-//         tree.type.onMouseEnter();
-//     } );
-//
-// re-rendering
-// tree = component.toJSON();
-// expect( tree ).toMatchSnapshot();
-// console.log(tree)
-//
-// TestRenderer.act( () => {
-//     // manually trigger the callback
-//     tree.props.onMouseLeave();
-// } );
-//
-// // re-rendering
-// tree = component.toJSON();
-// expect( tree ).toMatchSnapshot();
-// } );
