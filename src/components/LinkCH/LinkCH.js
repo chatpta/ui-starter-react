@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 const STATUS = {
     HOVERED: 'hovered',
@@ -19,14 +19,14 @@ const LinkCH = ( { page, children } ) => {
     };
 
     return (
-        <a
+        <Link
             className={ status }
-            href={ page || '#' }
+            to={ page || '#' }
             onMouseEnter={ onMouseEnter }
             onMouseLeave={ onMouseLeave }
         >
             { children }
-        </a>
+        </Link>
     );
 };
 

@@ -15,8 +15,8 @@ function AppRouter() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={ <HomePage/> }/>
-                <Route path="users" element={ <ItemsPage/> }/>
-                <Route path="items" element={ <UsersPage/> }/>
+                <Route path="items" element={ <ItemsPage/> }/>
+                <Route path="users" element={ <UsersPage/> }/>
             </Routes>
         </BrowserRouter>
     );

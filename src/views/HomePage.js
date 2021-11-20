@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import LinkCH from "../components/LinkCH/LinkCH";
 
 export default function HomePage() {
     return (
@@ -12,7 +13,8 @@ export default function HomePage() {
                 } }
             >
                 <Link to="/users">Users</Link> | { " " }
-                <Link to="/items">Items</Link>
+                <Link to="/items">Items</Link> | { " " }
+                <LinkCH page={ "/users" }>Go to Users page</LinkCH>
             </nav>
         </div>
     );
