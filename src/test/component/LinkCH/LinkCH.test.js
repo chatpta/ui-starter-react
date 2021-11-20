@@ -24,4 +24,11 @@ test( 'LinkCH render and hover', () => {
     expect( LinkElement.classList ).toEqual( expect.not.objectContaining( [ 'normal' ] ) );
     expect( LinkElement.classList ).toEqual( expect.objectContaining( [ 'hovered' ] ) );
 
+    // Simulate un-hover.
+    userEvent.unhover( LinkElement );
+
+    // After un-hover
+    expect( LinkElement.classList ).toEqual( expect.objectContaining( [ 'normal' ] ) );
+    expect( LinkElement.classList ).toEqual( expect.not.objectContaining( [ 'hovered' ] ) );
+
 } );
