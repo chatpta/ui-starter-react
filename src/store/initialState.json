@@ -1,42 +1,9 @@
 {
   "user": {
-    "name": "Pankaj",
-    "city": "Quebec",
-    "jwt": "hselehseei3837dhfifuufqwe",
-    "logged_in": false
   },
-  "product": {
-    "pending": false,
-    "error": false,
-    "product_created": false,
-    "images_created": false,
-    "images": null,
-    "product": {
-      "id": null,
-      "title": "",
-      "brand": "shan",
-      "manufacturer": "shan masala",
-      "seller": "indian masala",
-      "price": "1299",
-      "teaser_line": "this is best biryani masala to cook biryani",
-      "profile_image": null,
-      "updated_at": null,
-      "created_at": null,
-      "pictures": []
-    }
+  "item": {
   },
-  "products": {
-    "pending": false,
-    "error": false,
-    "list": []
-  },
-  "image": null,
-  "cart": {
-    "list": [],
-    "sync_error": null
-  },
-  "deals": {
-    "list": []
+  "items": {
   }
 }
 

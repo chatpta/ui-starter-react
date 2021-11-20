@@ -6,20 +6,16 @@
 import { combineReducers } from "redux";
 import reduxStoreUtility from "@chatpta/redux-store-utility";
 
-const pro = reduxStoreUtility.createReducer( "PRODUCT" );
-const prs = reduxStoreUtility.createReducer( "PRODUCTS" );
-const usr = reduxStoreUtility.createReducer( "USER" );
-const img = reduxStoreUtility.createReducer( "IMAGE" );
-const crt = reduxStoreUtility.createReducer( "CART" );
-const dls = reduxStoreUtility.createReducer( "DEALS" );
+// Note argument to createReducer is not case sensitive.
+const user = reduxStoreUtility.createReducer( "user" );
+const item = reduxStoreUtility.createReducer( "ITEM" );
+const items = reduxStoreUtility.createReducer( "Items" );
+
 
 const app = combineReducers( {
-    product: pro.productReducer,
-    products: prs.productsReducer,
-    user: usr.userReducer,
-    image: img.imageReducer,
-    cart: crt.cartReducer,
-    deals: dls.dealsReducer
+    user: user.userReducer, // Note the prefix 'user' in userReducer
+    item: item.itemReducer,
+    items: items.itemsReducer,
 } );
 
 export default app;
