@@ -1,10 +1,10 @@
 import TestRenderer from "react-test-renderer";
-import Link from "../../../components/Link/Link";
+import LinkCH from "../../../components/LinkCH/LinkCH";
 import React from "react";
 
 test( 'Link changes the class when hovered', () => {
     const component = TestRenderer.create(
-        <Link page="http://www.facebook.com">Facebook</Link>,
+        <LinkCH page="http://www.facebook.com">Facebook</LinkCH>,
     );
     let tree = component.toJSON();
     expect( tree ).toMatchSnapshot();

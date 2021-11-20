@@ -7,7 +7,7 @@ const STATUS = {
 };
 
 
-const Link = ( { page, children } ) => {
+const LinkCH = ( { page, children } ) => {
     const [ status, setStatus ] = useState( STATUS.NORMAL );
 
     const onMouseEnter = () => {
@@ -30,4 +30,4 @@ const Link = ( { page, children } ) => {
     );
 };
 
-export default Link;
+export default LinkCH;
