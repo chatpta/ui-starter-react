@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
 import LinkCH from "../components/LinkCH/LinkCH";
 
 export default function HomePage() {
     return (
-        <div>
+        <React.Fragment>
             <h1>Home Page</h1>
             <nav
                 style={ {
@@ -14,8 +14,20 @@ export default function HomePage() {
             >
                 <Link to="/users">Users</Link> | { " " }
                 <Link to="/items">Items</Link> | { " " }
-                <LinkCH page={ "/users" }>Go to Users page</LinkCH>
+                <LinkCH page={ "/users" }>Go to Users page</LinkCH> | { " " }
+                <NavLink
+                    style={ ( { isActive } ) => {
+                        return {
+                            display: "block",
+                            margin: "1rem 0",
+                            color: isActive ? "green" : "blue"
+                        };
+                    } }
+                    to={ '/users' }
+                >
+                    Nav Link
+                </NavLink>
             </nav>
-        </div>
+        </React.Fragment>
     );
 }

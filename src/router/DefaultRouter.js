@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
     BrowserRouter,
     Routes,
@@ -13,11 +13,21 @@ import ItemsPage from "../views/ItemsPage";
 function AppRouter() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={ <HomePage/> }/>
-                <Route path="items" element={ <ItemsPage/> }/>
-                <Route path="users" element={ <UsersPage/> }/>
-            </Routes>
+            <Suspense fallback={ <div>Loading...</div> }>
+                <Routes>
+                    <Route exact path="/" element={ <HomePage/> }/>
+                    <Route path="items" element={ <ItemsPage/> }/>
+                    <Route path="users" element={ <UsersPage/> }/>
+                    <Route
+                        path="*"
+                        element={
+                            <main style={ { padding: "1rem" } }>
+                                <p>Not found 404</p>
+                            </main>
+                        }
+                    />
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     );
 }
