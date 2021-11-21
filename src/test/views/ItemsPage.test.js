@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import App from "../../App/App";
+import ItemPage from "../../views/ItemsPage";
 
 
-test( 'renders home page link', () => {
-    render( <App/> );
-    const linkElement = screen.getByText( /items/i );
+test( 'Item page contains element', () => {
+    render( <ItemPage/> );
+    const element = screen.getByText( /items page/i );
 
-    expect( linkElement ).toBeInTheDocument();
+    expect( element ).toBeInTheDocument();
 } );

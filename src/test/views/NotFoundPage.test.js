@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import NotFoundPage from "../../views/NotFoundPage";
 
 
-test( 'renders NotFound page', () => {
+test( 'NotFound page contains element', () => {
     render( <NotFoundPage/> );
-    const linkElement = screen.getByText( /not found 404/i );
+    const element = screen.getByText( /not found 404/i );
 
-    expect( linkElement ).toBeInTheDocument();
+    expect( element ).toBeInTheDocument();
 } );
