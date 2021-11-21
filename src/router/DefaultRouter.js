@@ -5,11 +5,11 @@ import {
     Route
 } from "react-router-dom";
 
-
+// Lazy load pages
 const HomePage = React.lazy( () => import('../views/HomePage') );
 const UsersPage = React.lazy( () => import('../views/UsersPage') );
 const ItemsPage = React.lazy( () => import('../views/ItemsPage') );
-
+const NotFoundPage = React.lazy( () => import('../views/NotFoundPage') );
 
 function AppRouter() {
     return (
@@ -19,14 +19,7 @@ function AppRouter() {
                     <Route exact path="/" element={ <HomePage/> }/>
                     <Route path="users" element={ <UsersPage/> }/>
                     <Route path="items" element={ <ItemsPage/> }/>
-                    <Route
-                        path="*"
-                        element={
-                            <main style={ { padding: "1rem" } }>
-                                <p>Not found 404</p>
-                            </main>
-                        }
-                    />
+                    <Route path="*" element={ <NotFoundPage/> }/>
                 </Routes>
             </Suspense>
         </BrowserRouter>
