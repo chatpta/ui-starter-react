@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { unmountComponentAtNode } from "react-dom";
+import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 
 import UsersPage from "../../views/UsersPage";
 
