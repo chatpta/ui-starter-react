@@ -18,7 +18,11 @@ afterEach( () => {
 } );
 
 it( "renders user data", async () => {
-    const fakeUser = { name: "Joni Baez", age: "32", address: "123, Charming Avenue" };
+    const fakeUser = {
+        name: "Joni Baez",
+        age: "32",
+        address: "123, Charming Avenue"
+    };
 
     jest.spyOn( global, "fetch" )
         .mockImplementation( () => Promise.resolve( {
