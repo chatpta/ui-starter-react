@@ -18,7 +18,7 @@ function CreateAccountElement( props ) {
             if ( user?.message === "account created" && user?.pending === false ) {
                 userReset( { status: "account created" } );
             }
-        }, [ user?.pending ]
+        }, [ user?.pending, user?.message, userReset ]
     );
 
     return (
