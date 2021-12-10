@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountPage from "../pages/authPages/createAccount/CreateAccountPage";
+import CreateAccountPage from "../pages/authPages/register/CreateAccountPage";
 
 
 export default function CreateAccountPage() {

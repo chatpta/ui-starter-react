@@ -5,7 +5,7 @@ import {
     Route
 } from "react-router-dom";
 import LoginPage from "../pages/authPages/login/LoginPage";
-import CreateAccountPage from "../pages/authPages/createAccount/CreateAccountPage";
+import CreateAccountPage from "../pages/authPages/register/CreateAccountPage";
 
 
 // Lazy load pages
