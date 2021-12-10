@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "@chatpta/redux-store-utility": "^0.0.1",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.1",
     "@mui/lab": "latest",
-    "@mui/material": "latest",
+    "@mui/material": "^5.2.3",
     "@mui/styles": "latest",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
