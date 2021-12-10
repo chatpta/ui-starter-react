@@ -3,7 +3,7 @@ import React from "react";
 // import Footer from "../sections/Footer/Footer";
 // import MainSectionContainer from "../components/Containers/Sections/MainSectionContainer";
 //
-import LoginPage from "../pages/login/LoginElement";
+import LoginPage from "../pages/login/LoginPage";
 
 
 export default function LoginView() {
