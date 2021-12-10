@@ -8,12 +8,35 @@ import { Link } from "react-router-dom";
 import React from "react";
 
 
-function Login() {
+function LoginElement( props ) {
+    const { userFetch } = props;
+
     const classes = useLoginElementStyle();
 
-    const [ user, setUser ] = React.useState( { username: '', password: '' } );
+    const [ userLogin, setUserLogin ] = React.useState( { username: '', password: '' } );
 
-    console.log( user );
+    const reqURL = window.location.protocol + "//" + window.location.hostname + ":3001" + "/login";
+
+    const postReq = body => new Request( reqURL,
+        {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                "Content-type": "application/json",
+                'Access-Control-Allow-Origin': window.location.origin
+            },
+            body: body
+        } );
+
+
+    const handleClickLogin = e => {
+        e.stopPropagation();
+        e.preventDefault();
+        if ( userLogin?.username && userLogin?.password ) {
+            userFetch( postReq( JSON.stringify( userLogin ) ) );
+        }
+    };
+
 
     return (
         <div className={ classes.loginRoot }>
@@ -34,8 +57,8 @@ function Login() {
                         size={ "small" }
                         fullWidth
                         className={ classes.textField }
-                        value={ user.username }
-                        onChange={ event => setUser( { ...user, username: event.target.value } ) }
+                        value={ userLogin.username }
+                        onChange={ event => setUserLogin( { ...userLogin, username: event.target.value } ) }
                     />
                     <TextField
                         id="password"
@@ -46,8 +69,8 @@ function Login() {
                         type="password"
                         fullWidth
                         className={ classes.textField }
-                        value={ user.password }
-                        onChange={ event => setUser( { ...user, password: event.target.value } ) }
+                        value={ userLogin.password }
+                        onChange={ event => setUserLogin( { ...userLogin, password: event.target.value } ) }
                     />
                     <div className={ classes.rememberLine }>
                         <FormControlLabel
@@ -69,6 +92,7 @@ function Login() {
                         className={ classes.sendButton }
                         size={ "large" }
                         fullWidth
+                        onClick={ handleClickLogin }
                     >
                         Send
                     </Button>
@@ -78,4 +102,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginElement;
