@@ -11,6 +11,10 @@ import React from "react";
 function Login() {
     const classes = useLoginElementStyle();
 
+    const [ user, setUser ] = React.useState( { username: '', password: '' } );
+
+    console.log( user );
+
     return (
         <div className={ classes.loginRoot }>
             <div className={ classes.innerContainer }>
@@ -30,6 +34,8 @@ function Login() {
                         size={ "small" }
                         fullWidth
                         className={ classes.textField }
+                        value={ user.username }
+                        onChange={ event => setUser( { ...user, username: event.target.value } ) }
                     />
                     <TextField
                         id="password"
@@ -39,8 +45,9 @@ function Login() {
                         size={ "small" }
                         type="password"
                         fullWidth
-
                         className={ classes.textField }
+                        value={ user.password }
+                        onChange={ event => setUser( { ...user, password: event.target.value } ) }
                     />
                     <div className={ classes.rememberLine }>
                         <FormControlLabel
