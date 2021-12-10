@@ -1,4 +1,4 @@
-function handlers( user, userMutate, userFetch, userReset ) {
+function handlers( user, userMutate, userFetch ) {
 
     const firstNameChange = ( event ) => {
 
@@ -24,8 +24,9 @@ function handlers( user, userMutate, userFetch, userReset ) {
         e.preventDefault();
 
         if ( user?.first_name && user?.email && user?.password ) {
+
             userFetch( postReq( JSON.stringify( { user } ) ) );
-            userReset( {} );
+
         }
 
     }
