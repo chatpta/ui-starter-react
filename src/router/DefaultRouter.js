@@ -5,6 +5,8 @@ import {
     Route
 } from "react-router-dom";
 import LoginPage from "../pages/authPages/login/LoginPage";
+import CreateAccountPage from "../pages/authPages/createAccount/CreateAccountPage";
+
 
 // Lazy load pages
 const HomePage = React.lazy( () => import('../views/HomePage') );
@@ -20,6 +22,7 @@ function AppRouter() {
                     <Route exact path="/" element={ <HomePage/> }/>
                     <Route path="users" element={ <UsersPage/> }/>
                     <Route path="login" element={ <LoginPage/> }/>
+                    <Route path="register" element={ <CreateAccountPage/> }/>
                     <Route path="items" element={ <ItemsPage/> }/>
                     <Route path="*" element={ <NotFoundPage/> }/>
                 </Routes>

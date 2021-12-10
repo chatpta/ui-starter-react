@@ -15,9 +15,7 @@ function LoginElement( props ) {
 
     const [ userLogin, setUserLogin ] = React.useState( { username: '', password: '' } );
 
-    const reqURL = window.location.protocol + "//" + window.location.hostname + ":3001" + "/login";
-
-    const postReq = body => new Request( reqURL,
+    const postReq = body => new Request( "http://localhost:3001/login",
         {
             method: 'POST',
             headers: {
@@ -45,7 +43,7 @@ function LoginElement( props ) {
                     <h2 className={ classes.title }>Login</h2>
                     <h4 className={ classes.title }>
                         <Hidden xsDown> Do not have account ? </Hidden>
-                        <Link to={ "/create-account" } style={ { textDecoration: 'none' } }>
+                        <Link to={ "/register" } style={ { textDecoration: 'none' } }>
                             <span className={ classes.createAccount }>Register !</span>
                         </Link>
                     </h4>
