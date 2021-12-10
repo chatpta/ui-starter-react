@@ -4,9 +4,10 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import LoginPage from "../pages/authPages/login/LoginPage";
-import CreateAccountPage from "../pages/authPages/register/CreateAccountPage";
+
 import RecoverElementPage from "../pages/authPages/recover/RecoverElementPage";
+import CreateAccountView from "../views/CreateAccountView";
+import LoginView from "../views/LoginView";
 
 
 // Lazy load pages
@@ -22,8 +23,8 @@ function AppRouter() {
                 <Routes>
                     <Route exact path="/" element={ <HomePage/> }/>
                     <Route path="users" element={ <UsersPage/> }/>
-                    <Route path="login" element={ <LoginPage/> }/>
-                    <Route path="register" element={ <CreateAccountPage/> }/>
+                    <Route path="login" element={ <LoginView/> }/>
+                    <Route path="register" element={ <CreateAccountView/> }/>
                     <Route path="recover" element={ <RecoverElementPage/> }/>
                     <Route path="items" element={ <ItemsPage/> }/>
                     <Route path="*" element={ <NotFoundPage/> }/>

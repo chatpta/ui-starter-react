@@ -23,7 +23,7 @@ function CreateAccountElement( props ) {
         userMutate( { password: event.target.value } )
     }
 
-    const postReq = body => new Request( "http://localhost:3001/create",
+    const postReq = body => new Request( "http://localhost:3001/users",
         {
             method: 'POST',
             headers: {
@@ -39,7 +39,7 @@ function CreateAccountElement( props ) {
         e.stopPropagation();
         e.preventDefault();
         if ( user?.firstName && user?.email && user?.password ) {
-            userFetch( postReq( JSON.stringify( user ) ) );
+            userFetch( postReq( JSON.stringify( { user } ) ) );
         }
     };
 
