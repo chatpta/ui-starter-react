@@ -2,7 +2,7 @@ function handlers( user, userMutate, userFetch, userReset ) {
 
     const firstNameChange = ( event ) => {
 
-        userMutate( { firstName: event.target.value } );
+        userMutate( { first_name: event.target.value } );
 
     }
 
@@ -23,7 +23,7 @@ function handlers( user, userMutate, userFetch, userReset ) {
         e.stopPropagation();
         e.preventDefault();
 
-        if ( user?.firstName && user?.email && user?.password ) {
+        if ( user?.first_name && user?.email && user?.password ) {
             userFetch( postReq( JSON.stringify( { user } ) ) );
             userReset( {} );
         }

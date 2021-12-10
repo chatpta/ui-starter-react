@@ -40,7 +40,7 @@ function CreateAccountElement( props ) {
                         size={ "small" }
                         fullWidth
                         className={ classes.textField }
-                        value={ user?.firstName }
+                        value={ user?.first_name }
                         onChange={ handle.firstNameChange }
                     />
                     <TextField
