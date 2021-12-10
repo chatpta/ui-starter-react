@@ -3,11 +3,19 @@ import Button from '@material-ui/core/Button';
 import useCreateAccountElementStyle from "./CreateAccountElementStyle";
 import { Hidden } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 
 
-function CreateAccountElement() {
+function CreateAccountElement( props ) {
+    const { user, userFetch, userMutate, userReset } = props;
     const classes = useCreateAccountElementStyle();
+
+    console.log( user );
+
+    useEffect( () => {
+            userMutate( { username: "peter" } );
+        }, []
+    );
 
     return (
         <div className={ classes.root }>
