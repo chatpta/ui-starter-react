@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function UsersPage() {
+export default function ItemsPageView() {
     return (
         <main style={ { padding: "1rem 0" } }>
-            <h2>Users</h2>
+            <h2>Items Page</h2>
         </main>
     );
 }

@@ -3,7 +3,7 @@ import React from "react";
 import LinkCH from "../components/LinkCH/LinkCH";
 import ErrorBoundary from "../ErrorBoundry/ErrorBoundary";
 
-export default function HomePage() {
+export default function HomePageView() {
     return (
         <React.Fragment>
             <h1>Home Page</h1>

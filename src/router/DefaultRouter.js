@@ -6,28 +6,28 @@ import {
 } from "react-router-dom";
 
 import RecoverElementPage from "../pages/authPages/recover/RecoverElementPage";
-import CreateAccountView from "../views/CreateAccountView";
-import LoginView from "../views/LoginView";
-
 
 // Lazy load pages
-const HomePage = React.lazy( () => import('../views/HomePage') );
-const UsersPage = React.lazy( () => import('../views/UsersPage') );
-const ItemsPage = React.lazy( () => import('../views/ItemsPage') );
-const NotFoundPage = React.lazy( () => import('../views/NotFoundPage') );
+const HomePageView = React.lazy( () => import('../views/HomePageView') );
+const UsersPageView = React.lazy( () => import('../views/UsersPageView') );
+const LoginView = React.lazy( () => import('../views/LoginView') )
+const CreateAccountView = React.lazy( () => import('../views/CreateAccountView') )
+const ItemsPageView = React.lazy( () => import('../views/ItemsPageView') );
+const NotFoundPageView = React.lazy( () => import('../views/NotFoundPageView') );
+
 
 function AppRouter() {
     return (
         <BrowserRouter>
             <Suspense fallback={ <div>Loading...</div> }>
                 <Routes>
-                    <Route exact path="/" element={ <HomePage/> }/>
-                    <Route path="users" element={ <UsersPage/> }/>
+                    <Route exact path="/" element={ <HomePageView/> }/>
+                    <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="login" element={ <LoginView/> }/>
                     <Route path="register" element={ <CreateAccountView/> }/>
                     <Route path="recover" element={ <RecoverElementPage/> }/>
-                    <Route path="items" element={ <ItemsPage/> }/>
-                    <Route path="*" element={ <NotFoundPage/> }/>
+                    <Route path="items" element={ <ItemsPageView/> }/>
+                    <Route path="*" element={ <NotFoundPageView/> }/>
                 </Routes>
             </Suspense>
         </BrowserRouter>

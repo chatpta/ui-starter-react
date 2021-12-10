@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM, { unmountComponentAtNode } from 'react-dom';
 
-import UsersPage from "../../views/UsersPage";
+import UsersPageView from "../../views/UsersPage";
 
 
 let container = null;
@@ -21,7 +21,7 @@ afterEach( () => {
 it( 'UserPage renders', () => {
     container = document.createElement( 'div' );
 
-    ReactDOM.render( <UsersPage/>, container );
+    ReactDOM.render( <UsersPageView/>, container );
 } );
 
 
