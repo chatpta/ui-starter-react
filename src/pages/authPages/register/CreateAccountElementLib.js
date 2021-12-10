@@ -32,7 +32,7 @@ function handlers( user, userMutate, userFetch, userReset ) {
 
     function postReq( body ) {
 
-        return new Request( "http://localhost:3001/users",
+        return new Request( "http://localhost:3001/users/register",
             {
                 method: 'POST',
                 headers: {

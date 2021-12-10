@@ -24,7 +24,7 @@ function AppRouter() {
                     <Route exact path="/" element={ <HomePageView/> }/>
                     <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="login" element={ <LoginView/> }/>
-                    <Route path="register" element={ <CreateAccountView/> }/>
+                    <Route path="users/register" element={ <CreateAccountView/> }/>
                     <Route path="recover" element={ <RecoverElementPage/> }/>
                     <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>

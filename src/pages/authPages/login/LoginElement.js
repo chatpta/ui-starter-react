@@ -43,7 +43,7 @@ function LoginElement( props ) {
                     <h2 className={ classes.title }>Login</h2>
                     <h4 className={ classes.title }>
                         <Hidden xsDown> Do not have account ? </Hidden>
-                        <Link to={ "/register" } style={ { textDecoration: 'none' } }>
+                        <Link to={ "/users/register" } style={ { textDecoration: 'none' } }>
                             <span className={ classes.createAccount }>Register !</span>
                         </Link>
                     </h4>
