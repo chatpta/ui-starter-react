@@ -10,10 +10,20 @@ function CreateAccountElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const classes = useCreateAccountElementStyle();
 
-    console.log( user );
+    function handleFirstNameChange( event ) {
+        userMutate( { firstName: event.target.value } )
+    }
+
+    function handleEmailChange( event ) {
+        userMutate( { email: event.target.value } )
+    }
+
+    function handlePasswordChange( event ) {
+        userMutate( { password: event.target.value } )
+    }
 
     useEffect( () => {
-            userMutate( { username: "peter" } );
+            userReset( {} );
         }, []
     );
 
@@ -36,6 +46,8 @@ function CreateAccountElement( props ) {
                         size={ "small" }
                         fullWidth
                         className={ classes.textField }
+                        value={ user?.firstName }
+                        onChange={ handleFirstNameChange }
                     />
                     <TextField
                         id="email"
@@ -45,6 +57,8 @@ function CreateAccountElement( props ) {
                         size={ "small" }
                         fullWidth
                         className={ classes.textField }
+                        value={ user?.email }
+                        onChange={ handleEmailChange }
                     />
                     <TextField
                         id="password"
@@ -54,8 +68,9 @@ function CreateAccountElement( props ) {
                         size={ "small" }
                         type="password"
                         fullWidth
-
                         className={ classes.textField }
+                        value={ user?.password }
+                        onChange={ handlePasswordChange }
                     />
                     <Button
                         variant="contained"
