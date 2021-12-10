@@ -15,11 +15,11 @@ function CreateAccountElement( props ) {
     const classes = useCreateAccountElementStyle();
 
     useEffect( () => {
-            userReset( {} );
-        }, []
+            if ( user?.message === "account created" && user?.pending === false ) {
+                userReset( { status: "account created" } );
+            }
+        }, [ user?.pending ]
     );
-
-    console.log( user );
 
     return (
         <div className={ classes.root }>
