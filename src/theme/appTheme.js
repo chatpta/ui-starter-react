@@ -15,6 +15,7 @@ const appTheme = createTheme( {
         fullWidth: "1200px",
         mediumWidth: "900px",
         smallWidth: "600px",
+        topBarHeight: 70,
     },
 } );
 

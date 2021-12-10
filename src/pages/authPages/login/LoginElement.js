@@ -80,7 +80,7 @@ function LoginElement( props ) {
                             /> }
                             label="Remember me"
                         />
-                        <Link to={ "/forgot-password" } style={ { textDecoration: 'none' } }>
+                        <Link to={ "/recover" } style={ { textDecoration: 'none' } }>
                             <p className={ classes.forgotPassword }>Forgot password?</p>
                         </Link>
                     </div>
