@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 
-import { blueGrey, deepOrange, orange, green } from "@material-ui/core/colors";
+import { blueGrey, deepOrange, orange, green } from "@mui/material/colors";
 
 const appTheme = createTheme( {
     palette: {
