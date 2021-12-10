@@ -8,6 +8,7 @@ import React, { useEffect } from "react";
 
 function CreateAccountElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
+
     const classes = useCreateAccountElementStyle();
 
     function handleFirstNameChange( event ) {
@@ -22,10 +23,32 @@ function CreateAccountElement( props ) {
         userMutate( { password: event.target.value } )
     }
 
+    const postReq = body => new Request( "http://localhost:3001/create",
+        {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                "Content-type": "application/json",
+                'Access-Control-Allow-Origin': window.location.origin
+            },
+            body: body
+        } );
+
+
+    const handleClickCreateUser = e => {
+        e.stopPropagation();
+        e.preventDefault();
+        if ( user?.firstName && user?.email && user?.password ) {
+            userFetch( postReq( JSON.stringify( user ) ) );
+        }
+    };
+
     useEffect( () => {
             userReset( {} );
         }, []
     );
+
+    console.log( user );
 
     return (
         <div className={ classes.root }>
@@ -78,6 +101,7 @@ function CreateAccountElement( props ) {
                         className={ classes.sendButton }
                         size={ "large" }
                         fullWidth
+                        onClick={ handleClickCreateUser }
                     >
                         Send
                     </Button>
