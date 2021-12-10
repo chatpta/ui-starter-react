@@ -4,7 +4,7 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import LoginView from "../views/LoginView";
+import LoginPage from "../pages/login/LoginPage";
 
 // Lazy load pages
 const HomePage = React.lazy( () => import('../views/HomePage') );
@@ -19,7 +19,7 @@ function AppRouter() {
                 <Routes>
                     <Route exact path="/" element={ <HomePage/> }/>
                     <Route path="users" element={ <UsersPage/> }/>
-                    <Route path="login" element={ <LoginView/> }/>
+                    <Route path="login" element={ <LoginPage/> }/>
                     <Route path="items" element={ <ItemsPage/> }/>
                     <Route path="*" element={ <NotFoundPage/> }/>
                 </Routes>
