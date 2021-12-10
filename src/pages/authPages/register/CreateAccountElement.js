@@ -5,43 +5,14 @@ import { Hidden } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 
+import { handlers } from "./CreateAccountElementLib";
+
 
 function CreateAccountElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
+    const handle = handlers( user, userMutate, userFetch, userReset );
 
     const classes = useCreateAccountElementStyle();
-
-    function handleFirstNameChange( event ) {
-        userMutate( { firstName: event.target.value } )
-    }
-
-    function handleEmailChange( event ) {
-        userMutate( { email: event.target.value } )
-    }
-
-    function handlePasswordChange( event ) {
-        userMutate( { password: event.target.value } )
-    }
-
-    const postReq = body => new Request( "http://localhost:3001/users",
-        {
-            method: 'POST',
-            headers: {
-                "Accept": "application/json",
-                "Content-type": "application/json",
-                'Access-Control-Allow-Origin': window.location.origin
-            },
-            body: body
-        } );
-
-
-    const handleClickCreateUser = e => {
-        e.stopPropagation();
-        e.preventDefault();
-        if ( user?.firstName && user?.email && user?.password ) {
-            userFetch( postReq( JSON.stringify( { user } ) ) );
-        }
-    };
 
     useEffect( () => {
             userReset( {} );
@@ -70,7 +41,7 @@ function CreateAccountElement( props ) {
                         fullWidth
                         className={ classes.textField }
                         value={ user?.firstName }
-                        onChange={ handleFirstNameChange }
+                        onChange={ handle.firstNameChange }
                     />
                     <TextField
                         id="email"
@@ -81,7 +52,7 @@ function CreateAccountElement( props ) {
                         fullWidth
                         className={ classes.textField }
                         value={ user?.email }
-                        onChange={ handleEmailChange }
+                        onChange={ handle.emailChange }
                     />
                     <TextField
                         id="password"
@@ -93,7 +64,7 @@ function CreateAccountElement( props ) {
                         fullWidth
                         className={ classes.textField }
                         value={ user?.password }
-                        onChange={ handlePasswordChange }
+                        onChange={ handle.passwordChange }
                     />
                     <Button
                         variant="contained"
@@ -101,7 +72,7 @@ function CreateAccountElement( props ) {
                         className={ classes.sendButton }
                         size={ "large" }
                         fullWidth
-                        onClick={ handleClickCreateUser }
+                        onClick={ handle.clickCreateUser }
                     >
                         Send
                     </Button>
