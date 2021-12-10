@@ -1,11 +1,12 @@
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import useLoginElementStyle from "./LoginElementStyle";
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Hidden } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
+import { Hidden } from "@mui/material";
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+import useLoginElementStyle from "./LoginElementStyle";
 
 
 function LoginElement( props ) {

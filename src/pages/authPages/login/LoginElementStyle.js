@@ -1,7 +1,7 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 const useLoginElementStyle = makeStyles( theme => ( {
-    loginRoot: {
+    loginRoot: () => ( {
         minHeight: "76vh",
         display: "flex",
         alignItems: "center",
@@ -14,8 +14,8 @@ const useLoginElementStyle = makeStyles( theme => ( {
         '@media (min-width: 1800px)': {
             padding: theme.spacing( 30 ),
         },
-    },
-    innerContainer: {
+    } ),
+    innerContainer: () => ( {
         maxWidth: theme.dimensions.mainSectionWidth,
         padding: theme.spacing( 2 ),
         margin: "auto",
@@ -24,8 +24,8 @@ const useLoginElementStyle = makeStyles( theme => ( {
             flexFlow: "row",
             paddingBottom: theme.spacing( 2 ),
         }
-    },
-    contactFormContainer: {
+    } ),
+    contactFormContainer: () => ( {
         margin: "auto",
         backgroundColor: "white",
         padding: theme.spacing( 4 ),
@@ -39,34 +39,34 @@ const useLoginElementStyle = makeStyles( theme => ( {
             padding: theme.spacing( 2 ),
             paddingTop: theme.spacing( 4 ),
         }
-    },
-    title: {
+    } ),
+    title: () => ( {
         textAlign: "center",
-    },
-    createAccount: {
+    } ),
+    createAccount: () => ( {
         color: theme.palette.secondary.main,
         cursor: "pointer",
-    },
-    textField: {
+    } ),
+    textField: () => ( {
         marginTop: theme.spacing( 2 ),
-    },
-    rememberLine: {
+    } ),
+    rememberLine: () => ( {
         display: "flex",
         flexFlow: "row",
         justifyContent: "space-between",
-    },
-    forgotPassword: {
+    } ),
+    forgotPassword: () => ( {
         color: theme.palette.primary.main,
         cursor: "pointer",
-    },
-    sendButton: {
+    } ),
+    sendButton: () => ( {
         // color: "white",
         textTransform: "none",
         fontWeight: 800,
         '&>span': {
             paddingTop: theme.spacing( 0.4 ),
         }
-    },
+    } ),
 } ), { index: 1 } );
 
 export default useLoginElementStyle;

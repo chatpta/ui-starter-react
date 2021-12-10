@@ -1,7 +1,7 @@
 import React from "react";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Hidden } from "@material-ui/core";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { Hidden } from "@mui/material";
 import useRecoverElementStyle from "./RecoverElementStyle";
 
 
