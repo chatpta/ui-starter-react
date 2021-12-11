@@ -12,18 +12,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import Copyright from "../../../components/Copyright/Copyright";
+import { handlers } from "./loginElementLib";
+import { useEffect } from "react";
 
 
-export default function SignIn() {
-    const handleSubmit = ( event ) => {
-        event.preventDefault();
-        const data = new FormData( event.currentTarget );
-        // eslint-disable-next-line no-console
-        console.log( {
-            email: data.get( 'email' ),
-            password: data.get( 'password' ),
-        } );
-    };
+export default function LoginElement( props ) {
+    const { user, userFetch, userMutate, userReset } = props;
+    const handle = handlers( user, userMutate, userFetch, userReset );
+
+    console.log( user );
+
+    useEffect( () => {
+            if ( user?.message === "account created" && user?.pending === false ) {
+                userReset( { status: "logged in", jwt: user?.jwt } );
+            }
+        }, [ user?.pending, user?.message, userReset, user?.jwt ]
+    );
 
     return (
         <Container component="main" maxWidth="xs">
@@ -41,7 +45,7 @@ export default function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <Box component="form" onSubmit={ handleSubmit } noValidate sx={ { mt: 1 } }>
+                <Box component="form" noValidate sx={ { mt: 1 } }>
                     <TextField
                         margin="normal"
                         required
@@ -50,6 +54,8 @@ export default function SignIn() {
                         label="Email Address"
                         name="email"
                         autoComplete="email"
+                        value={ user?.email }
+                        onChange={ handle.emailChange }
                         autoFocus
                     />
                     <TextField
@@ -61,6 +67,8 @@ export default function SignIn() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        value={ user?.password }
+                        onChange={ handle.passwordChange }
                     />
                     <div style={ { display: "flex", justifyContent: "center" } }>
                         <FormControlLabel
@@ -75,6 +83,7 @@ export default function SignIn() {
                         variant="contained"
                         size={ "large" }
                         sx={ { mt: 3, mb: 2 } }
+                        onClick={ handle.clickCreateUser }
                     >
                         Sign In
                     </Button>
