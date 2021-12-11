@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -19,14 +19,15 @@ import { useEffect } from "react";
 export default function LoginElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const handle = handlers( user, userMutate, userFetch, userReset );
+    let navigate = useNavigate();
 
-    console.log( user );
 
     useEffect( () => {
-            if ( user?.message === "account created" && user?.pending === false ) {
+            if ( user?.jwt && user?.pending === false ) {
                 userReset( { status: "logged in", jwt: user?.jwt } );
+                navigate( "/" );
             }
-        }, [ user?.pending, user?.message, userReset, user?.jwt ]
+        }, [ user?.pending, userReset, user?.jwt, navigate, user ]
     );
 
     return (

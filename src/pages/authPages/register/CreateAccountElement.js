@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Hidden } from "@mui/material";
@@ -11,14 +11,16 @@ import { handlers } from "./CreateAccountElementLib";
 function CreateAccountElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const handle = handlers( user, userMutate, userFetch, userReset );
-
+    let navigate = useNavigate();
     const classes = useCreateAccountElementStyle();
+
 
     useEffect( () => {
             if ( user?.message === "account created" && user?.pending === false ) {
                 userReset( { status: "account created" } );
+                navigate( "/login" );
             }
-        }, [ user?.pending, user?.message, userReset ]
+        }, [ user?.pending, user?.message, userReset, navigate ]
     );
 
     return (
