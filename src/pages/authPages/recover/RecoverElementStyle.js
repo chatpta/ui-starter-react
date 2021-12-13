@@ -14,6 +14,9 @@ const useRecoverElementStyle = makeStyles( theme => ( {
             boxShadow: theme.shadows[ 10 ],
         },
     } ),
+    form: () => ( {
+        width: "100%",
+    } ),
 } ) );
 
 export default useRecoverElementStyle;
