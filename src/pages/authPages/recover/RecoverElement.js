@@ -20,54 +20,56 @@ function RecoverElement( props ) {
     const classes = useRecoverElementStyle();
 
     return (
-        <Container component="main" maxWidth="sm">
-            <Box className={ classes.formBox }>
-                <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
-                    <LockOutlinedIcon/>
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Recover password
-                </Typography>
-                <Box
-                    component="form"
-                    noValidate sx={ { mt: 1 } }
-                    className={ classes.form }
-                >
-                    <TextField
-                        id="email"
-                        name="email"
-                        margin="normal"
-                        label="Email Address"
-                        autoComplete="email"
-                        required
-                        autoFocus
-                        fullWidth
-                        value={ user?.email }
-                        onChange={ handle.emailChange }
-                    />
-                    <Button
-                        style={ { marginTop: 8 } }
-                        fullWidth
-                        type="submit"
-                        variant="contained"
-                        size={ "large" }
-                        sx={ { mt: 3, mb: 2 } }
-                        onClick={ handle.clickRecoverPassword }
+        <div className={ classes.container }>
+            <Container component="main" maxWidth="sm">
+                <Box className={ classes.formBox }>
+                    <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
+                        <LockOutlinedIcon/>
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Recover password
+                    </Typography>
+                    <Box
+                        component="form"
+                        noValidate sx={ { mt: 1 } }
+                        className={ classes.form }
                     >
-                        Send
-                    </Button>
-                    <Grid container>
-                        <Grid item>
-                            <Link to={ "/login" }
-                                  style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
-                                { "Already have an account? Sign in" }
-                            </Link>
+                        <TextField
+                            id="email"
+                            name="email"
+                            margin="normal"
+                            label="Email Address"
+                            autoComplete="email"
+                            required
+                            autoFocus
+                            fullWidth
+                            value={ user?.email }
+                            onChange={ handle.emailChange }
+                        />
+                        <Button
+                            style={ { marginTop: 8 } }
+                            fullWidth
+                            type="submit"
+                            variant="contained"
+                            size={ "large" }
+                            sx={ { mt: 3, mb: 2 } }
+                            onClick={ handle.clickRecoverPassword }
+                        >
+                            Send
+                        </Button>
+                        <Grid container>
+                            <Grid item>
+                                <Link to={ "/login" }
+                                      style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
+                                    { "Already have an account? Sign in" }
+                                </Link>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Box>
                 </Box>
-            </Box>
-            <Copyright sx={ { mt: 8, mb: 4 } }/>
-        </Container>
+                <Copyright sx={ { mt: 8, mb: 4 } }/>
+            </Container>
+        </div>
     );
 }
 

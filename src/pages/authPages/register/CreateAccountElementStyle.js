@@ -1,6 +1,12 @@
 import { makeStyles } from "@mui/styles";
 
 const useCreateAccountElementStyle = makeStyles( theme => ( {
+    container: {
+        paddingTop: theme.spacing( 2 ),
+        '@media (min-width: 500px)': {
+            paddingTop: theme.spacing( 8 ),
+        },
+    },
     formBox: {
         display: 'flex',
         flexDirection: 'column',
@@ -13,9 +19,9 @@ const useCreateAccountElementStyle = makeStyles( theme => ( {
             boxShadow: theme.shadows[ 10 ],
         },
     },
-    form:  {
+    form: {
         width: "100%",
-    } ,
+    },
 } ) );
 
 export default useCreateAccountElementStyle;
