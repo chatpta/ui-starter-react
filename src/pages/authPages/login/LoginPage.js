@@ -1,5 +1,6 @@
 import StoreConnect from "../lib/storeConnect";
-import * as React from 'react';
+import React from 'react';
+import { useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -15,7 +16,6 @@ import Container from '@mui/material/Container';
 import { urls } from "../../../config";
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./loginElementLib";
-import { useEffect } from "react";
 import useCreateLoginElementStyle from "../lib/authStyle";
 
 

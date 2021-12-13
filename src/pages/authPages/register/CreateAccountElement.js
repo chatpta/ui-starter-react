@@ -2,20 +2,19 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
-
-import useCreateAccountElementStyle from "./CreateAccountElementStyle";
-import { handlers } from "./CreateAccountElementLib";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
+import { handlers } from "./CreateAccountElementLib";
 import Copyright from "../../../components/Copyright/Copyright";
 import { urls } from "../../../config";
+import useCreateAccountElementStyle from "../lib/authStyle";
 
 
 function CreateAccountElement( props ) {
