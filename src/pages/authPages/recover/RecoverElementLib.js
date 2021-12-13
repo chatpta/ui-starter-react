@@ -1,3 +1,5 @@
+import { urls } from "../../../config";
+
 function handlers( user, userMutate, userFetch ) {
 
     const firstNameChange = ( event ) => {
@@ -33,7 +35,7 @@ function handlers( user, userMutate, userFetch ) {
 
     function postReq( body ) {
 
-        return new Request( "http://localhost:3001/recover",
+        return new Request( urls.passwordRecoverURL(),
             {
                 method: 'POST',
                 headers: {
