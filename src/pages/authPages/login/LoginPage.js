@@ -16,7 +16,7 @@ import { urls } from "../../../config";
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./loginElementLib";
 import { useEffect } from "react";
-import useCreateLoginElementStyle from "./LoginElementStyle";
+import useCreateLoginElementStyle from "../lib/authStyle";
 
 
 function LoginElement( props ) {
