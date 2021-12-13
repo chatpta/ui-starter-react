@@ -11,6 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
+import { urls } from "../../../config";
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./loginElementLib";
 import { useEffect } from "react";
@@ -91,13 +92,13 @@ export default function LoginElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link to={ "/recover" }
+                                <Link to={ urls.passwordRecoverPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     Forgot password?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link to={ "/users/register" }
+                                <Link to={ urls.usersRegisterPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Don't have an account? Sign Up" }
                                 </Link>

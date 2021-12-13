@@ -9,6 +9,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
+
+import { urls } from "../../../config";
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./RecoverElementLib";
 
@@ -59,7 +61,7 @@ function RecoverElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link to={ "/login" }
+                                <Link to={ urls.usersLoginPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Already have an account? Sign in" }
                                 </Link>

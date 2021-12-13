@@ -35,7 +35,7 @@ function handlers( user, userMutate, userFetch ) {
 
     function postReq( body ) {
 
-        return new Request( urls.loginURl(),
+        return new Request( urls.usersLoginURL(),
             {
                 method: 'POST',
                 headers: {

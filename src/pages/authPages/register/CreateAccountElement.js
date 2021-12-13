@@ -15,6 +15,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import Copyright from "../../../components/Copyright/Copyright";
+import { urls } from "../../../config";
 
 
 function CreateAccountElement( props ) {
@@ -100,7 +101,7 @@ function CreateAccountElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link to={ "/login" }
+                                <Link to={ urls.usersLoginPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Already have account? Sign in" }
                                 </Link>
