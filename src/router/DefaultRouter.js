@@ -9,13 +9,13 @@ import { urls } from "../config";
 
 // Lazy load pages
 const HomePageView = React.lazy( () => import('../views/HomePageView') );
+const UserLoginView = React.lazy( () => import('../views/UserLoginView') )
+const UserCreateAccountView = React.lazy( () => import('../views/UserCreateAccountView') )
+const UserRecoverPasswordView = React.lazy( ( () => import('../views/UserRecoverPasswordView') ) );
+const UserChangePasswordView = React.lazy( () => import("../views/UserChangePasswordView") );
 const UsersPageView = React.lazy( () => import('../views/UsersPageView') );
-const LoginView = React.lazy( () => import('../views/LoginView') )
-const CreateAccountView = React.lazy( () => import('../views/CreateAccountView') )
 const ItemsPageView = React.lazy( () => import('../views/ItemsPageView') );
 const NotFoundPageView = React.lazy( () => import('../views/NotFoundPageView') );
-const RecoverPageView = React.lazy( ( () => import('../views/RecoverPageView') ) );
-
 
 function AppRouter() {
     return (
@@ -23,9 +23,10 @@ function AppRouter() {
             <Suspense fallback={ <div>Loading...</div> }>
                 <Routes>
                     <Route exact path={ urls.getRootPath() } element={ <HomePageView/> }/>
-                    <Route path={ urls.usersLoginPath() } element={ <LoginView/> }/>
-                    <Route path={ urls.usersRegisterPath() } element={ <CreateAccountView/> }/>
-                    <Route path={ urls.passwordRecoverPath() } element={ <RecoverPageView/> }/>
+                    <Route path={ urls.usersLoginPath() } element={ <UserLoginView/> }/>
+                    <Route path={ urls.usersRegisterPath() } element={ <UserCreateAccountView/> }/>
+                    <Route path={ urls.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
+                    <Route path={ urls.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
                     <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>

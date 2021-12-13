@@ -2,7 +2,7 @@ import React from "react";
 import LoginPage from "../pages/authPages/login/LoginPage";
 
 
-export default function LoginView() {
+export default function UserLoginView() {
     return (
         <div>
             <LoginPage/>

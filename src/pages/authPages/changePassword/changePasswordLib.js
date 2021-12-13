@@ -20,12 +20,18 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickRecoverPassword = e => {
+    const passwordConfirmChange = ( event ) => {
+
+        userMutate( { password_confirm: event.target.value } );
+
+    }
+
+    const clickChangePassword = e => {
 
         e.stopPropagation();
         e.preventDefault();
 
-        if ( user?.email ) {
+        if ( user?.password && user?.password_confirm && ( user?.password === user?.password_confirm ) ) {
 
             userFetch( postReq( JSON.stringify( { user } ) ) );
 
@@ -35,7 +41,7 @@ function handlers( user, userMutate, userFetch ) {
 
     function postReq( body ) {
 
-        return new Request( urls.usersPasswordRecoverURL(),
+        return new Request( urls.usersChangePasswordURL(),
             {
                 method: 'POST',
                 headers: {
@@ -51,7 +57,8 @@ function handlers( user, userMutate, userFetch ) {
         firstNameChange,
         emailChange,
         passwordChange,
-        clickRecoverPassword
+        passwordConfirmChange,
+        clickChangePassword,
     };
 }
 

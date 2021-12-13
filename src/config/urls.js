@@ -32,16 +32,16 @@ module.exports = {
     usersRegisterURL: function () {
         return this.getHost() + this.usersRegisterPath();
     },
-    passwordRecoverPath: function () {
+    usersPasswordRecoverPath: function () {
         return this.paths.users.root + this.paths.users.recover;
     },
-    passwordRecoverURL: function () {
-        return this.getHost() + this.passwordRecoverPath();
+    usersPasswordRecoverURL: function () {
+        return this.getHost() + this.usersPasswordRecoverPath();
     },
-    changePasswordPath: function () {
+    usersChangePasswordPath: function () {
         return this.paths.users.root + this.paths.users.changePassword;
     },
-    changePasswordURL: function () {
-        return this.getHost() + this.changePasswordPath();
+    usersChangePasswordURL: function () {
+        return this.getHost() + this.usersChangePasswordPath();
     },
 }
