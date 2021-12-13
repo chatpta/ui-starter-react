@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 import Copyright from "../../../components/Copyright/Copyright";
-import { handlers } from "../login/loginElementLib";
+import { handlers } from "./RecoverElementLib";
 
 
 function RecoverElement( props ) {
@@ -28,7 +28,11 @@ function RecoverElement( props ) {
                 <Typography component="h1" variant="h5">
                     Recover password
                 </Typography>
-                <Box component="form" noValidate sx={ { mt: 1 } }>
+                <Box
+                    component="form"
+                    noValidate sx={ { mt: 1 } }
+                    className={ classes.form }
+                >
                     <TextField
                         id="email"
                         name="email"
@@ -41,7 +45,6 @@ function RecoverElement( props ) {
                         value={ user?.email }
                         onChange={ handle.emailChange }
                     />
-
                     <Button
                         style={ { marginTop: 8 } }
                         fullWidth
@@ -49,9 +52,9 @@ function RecoverElement( props ) {
                         variant="contained"
                         size={ "large" }
                         sx={ { mt: 3, mb: 2 } }
-                        onClick={ handle.clickCreateUser }
+                        onClick={ handle.clickRecoverPassword }
                     >
-                        Sign In
+                        Send
                     </Button>
                     <Grid container>
                         <Grid item>
