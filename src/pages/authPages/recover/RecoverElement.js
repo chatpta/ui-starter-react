@@ -20,7 +20,7 @@ function RecoverElement( props ) {
     const classes = useRecoverElementStyle();
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="sm">
             <Box className={ classes.formBox }>
                 <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
                     <LockOutlinedIcon/>

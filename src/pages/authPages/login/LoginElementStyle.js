@@ -14,6 +14,9 @@ const useLoginElementStyle = makeStyles( theme => ( {
             boxShadow: theme.shadows[ 10 ],
         },
     } ),
+    form: () => ( {
+        width: "100%",
+    } ),
 } ), { index: 1 } );
 
 export default useLoginElementStyle;

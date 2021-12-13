@@ -34,7 +34,7 @@ export default function LoginElement( props ) {
     );
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="sm">
             <Box className={ classes.formBox }>
                 <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
                     <LockOutlinedIcon/>
@@ -42,7 +42,11 @@ export default function LoginElement( props ) {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <Box component="form" noValidate sx={ { mt: 1 } }>
+                <Box
+                    component="form"
+                    noValidate sx={ { mt: 1 } }
+                    className={ classes.form }
+                >
                     <TextField
                         id="email"
                         name="email"

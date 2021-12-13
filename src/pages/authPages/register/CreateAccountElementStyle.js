@@ -7,10 +7,16 @@ const useCreateAccountElementStyle = makeStyles( theme => ( {
         alignItems: 'center',
         borderRadius: theme.dimensions.borderRadius,
         backgroundColor: theme.palette.main,
-        padding: theme.spacing( 2 ),
         marginTop: theme.spacing( 8 ),
-        boxShadow: theme.shadows[ 10 ],
-    }
+
+        '@media (min-width: 500px)': {
+            padding: theme.spacing( 2 ),
+            boxShadow: theme.shadows[ 10 ],
+        },
+    },
+    form:  {
+        width: "100%",
+    } ,
 } ) );
 
 export default useCreateAccountElementStyle;

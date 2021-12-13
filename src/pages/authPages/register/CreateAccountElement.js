@@ -32,7 +32,7 @@ function CreateAccountElement( props ) {
     );
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="sm">
             <Box className={ classes.formBox }>
                 <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
                     <LockOutlinedIcon/>
@@ -40,7 +40,11 @@ function CreateAccountElement( props ) {
                 <Typography component="h1" variant="h5">
                     Create account
                 </Typography>
-                <Box component="form" noValidate sx={ { mt: 1 } }>
+                <Box
+                    component="form"
+                    noValidate sx={ { mt: 1 } }
+                    className={ classes.form }
+                >
                     <TextField
                         id="first_name"
                         name="first_name"
