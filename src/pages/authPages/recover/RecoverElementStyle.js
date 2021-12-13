@@ -6,7 +6,7 @@ const useRecoverElementStyle = makeStyles( theme => ( {
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: theme.dimensions.borderRadius,
-        backgroundColor: theme.palette.main,
+        backgroundColor: theme.palette.background.default,
 
         '@media (min-width: 500px)': {
             padding: theme.spacing( 2 ),

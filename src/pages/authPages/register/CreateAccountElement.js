@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
+import Copyright from "../../../components/Copyright/Copyright";
 
 
 function CreateAccountElement( props ) {
@@ -106,6 +107,7 @@ function CreateAccountElement( props ) {
                     </Grid>
                 </Box>
             </Box>
+            <Copyright sx={ { mt: 8, mb: 4 } }/>
         </Container>
     );
 }
