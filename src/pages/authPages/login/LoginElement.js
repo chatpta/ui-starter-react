@@ -80,7 +80,7 @@ export default function LoginElement( props ) {
                         variant="contained"
                         size={ "large" }
                         sx={ { mt: 3, mb: 2 } }
-                        onClick={ handle.clickCreateUser }
+                        onClick={ handle.clickLoginUser }
                     >
                         Sign In
                     </Button>

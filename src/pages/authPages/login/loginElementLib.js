@@ -18,7 +18,7 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = e => {
+    const clickLoginUser = e => {
 
         e.stopPropagation();
         e.preventDefault();
@@ -49,7 +49,7 @@ function handlers( user, userMutate, userFetch ) {
         firstNameChange,
         emailChange,
         passwordChange,
-        clickCreateUser
+        clickLoginUser
     };
 }
 
