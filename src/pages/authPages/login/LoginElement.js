@@ -14,12 +14,15 @@ import Container from '@mui/material/Container';
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./loginElementLib";
 import { useEffect } from "react";
+import useCreateLoginElementStyle from "./LoginElementStyle";
 
 
 export default function LoginElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const handle = handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
+
+    const classes = useCreateLoginElementStyle( { marginTop: 64 } );
 
 
     useEffect( () => {
@@ -32,14 +35,7 @@ export default function LoginElement( props ) {
 
     return (
         <Container component="main" maxWidth="xs">
-            <Box
-                sx={ {
-                    paddingTop: 8,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                } }
-            >
+            <Box className={ classes.formBox }>
                 <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
                     <LockOutlinedIcon/>
                 </Avatar>
@@ -48,26 +44,26 @@ export default function LoginElement( props ) {
                 </Typography>
                 <Box component="form" noValidate sx={ { mt: 1 } }>
                     <TextField
-                        margin="normal"
-                        required
-                        fullWidth
                         id="email"
-                        label="Email Address"
                         name="email"
+                        margin="normal"
+                        label="Email Address"
                         autoComplete="email"
+                        required
+                        autoFocus
+                        fullWidth
                         value={ user?.email }
                         onChange={ handle.emailChange }
-                        autoFocus
                     />
                     <TextField
-                        margin="normal"
-                        required
-                        fullWidth
+                        id="password"
                         name="password"
+                        margin="normal"
                         label="Password"
                         type="password"
-                        id="password"
                         autoComplete="current-password"
+                        required
+                        fullWidth
                         value={ user?.password }
                         onChange={ handle.passwordChange }
                     />

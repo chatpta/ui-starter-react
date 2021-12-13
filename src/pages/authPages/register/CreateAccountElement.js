@@ -2,10 +2,18 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Hidden } from "@mui/material";
+
 
 import useCreateAccountElementStyle from "./CreateAccountElementStyle";
 import { handlers } from "./CreateAccountElementLib";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Grid from "@mui/material/Grid";
 
 
 function CreateAccountElement( props ) {
@@ -24,63 +32,77 @@ function CreateAccountElement( props ) {
     );
 
     return (
-        <div className={ classes.root }>
-            <div className={ classes.innerContainer }>
-                <div className={ classes.contactFormContainer }>
-                    <h2 className={ classes.title }>Create account</h2>
-                    <h4 className={ classes.title }>
-                        <Hidden xsDown> Already have account, </Hidden>
-                        <Link to={ "/login" } style={ { textDecoration: 'none' } }>
-                            <span className={ classes.createAccount }>Login</span>
-                        </Link>
-                    </h4>
+        <Container component="main" maxWidth="xs">
+            <Box className={ classes.formBox }>
+                <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
+                    <LockOutlinedIcon/>
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Create account
+                </Typography>
+                <Box component="form" noValidate sx={ { mt: 1 } }>
                     <TextField
-                        id="username"
-                        variant="outlined"
-                        placeholder={ "First Name" }
-                        color="primary"
-                        size={ "small" }
+                        id="first_name"
+                        name="first_name"
+                        margin="normal"
+                        label="Name"
+                        required
                         fullWidth
-                        className={ classes.textField }
+                        autoFocus
                         value={ user?.first_name }
                         onChange={ handle.firstNameChange }
                     />
                     <TextField
                         id="email"
-                        variant="outlined"
-                        placeholder={ "Email" }
-                        color="primary"
-                        size={ "small" }
+                        name="email"
+                        margin="normal"
+                        label="Email Address"
+                        autoComplete="email"
+                        required
                         fullWidth
-                        className={ classes.textField }
                         value={ user?.email }
                         onChange={ handle.emailChange }
                     />
                     <TextField
                         id="password"
-                        variant="outlined"
-                        placeholder={ "Password" }
-                        color="primary"
-                        size={ "small" }
+                        name="password"
+                        label="Password"
+                        margin="normal"
                         type="password"
+                        autoComplete="current-password"
+                        required
                         fullWidth
-                        className={ classes.textField }
                         value={ user?.password }
                         onChange={ handle.passwordChange }
                     />
+                    <div style={ { display: "flex", justifyContent: "center" } }>
+                        <FormControlLabel
+                            control={ <Checkbox value="remember" color="primary"/> }
+                            label="Remember me"
+                        />
+                    </div>
                     <Button
-                        variant="contained"
-                        color="primary"
-                        className={ classes.sendButton }
-                        size={ "large" }
+                        style={ { marginTop: 8 } }
                         fullWidth
+                        type="submit"
+                        variant="contained"
+                        size={ "large" }
+                        sx={ { mt: 3, mb: 2 } }
                         onClick={ handle.clickCreateUser }
                     >
                         Send
                     </Button>
-                </div>
-            </div>
-        </div>
+                    <Grid container>
+                        <Grid item>
+                            <Link to={ "/login" }
+                                  style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
+                                { "Already have account? Sign in" }
+                            </Link>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
+        </Container>
     );
 }
 

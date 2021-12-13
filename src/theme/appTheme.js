@@ -9,9 +9,11 @@ const appTheme = createTheme( {
         secondary: { main: deepOrange[ 500 ] },
         emphasis: { main: orange[ 500 ] },
         cool: { main: green[ 700 ] },
-        background: { main: "#faecd9" }
+        background: { main: "#faecd9" },
+        color: { main: "#222222" }
     },
     dimensions: {
+        borderRadius: "6px",
         fullWidth: "1200px",
         mediumWidth: "900px",
         smallWidth: "600px",
