@@ -11,6 +11,9 @@ module.exports = {
             changePassword: "/change-password"
         }
     },
+    getSiteUrl: function () {
+        return this.root;
+    },
     getRootPath: function () {
         return this.paths.root;
     },
