@@ -1,13 +1,12 @@
 import { makeStyles } from "@mui/styles";
 
 const useLoginElementStyle = makeStyles( theme => ( {
-    formBox: ( props ) => ( {
+    formBox: ( ) => ( {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: theme.dimensions.borderRadius,
         backgroundColor: theme.palette.main,
-        marginTop: props.marginTop,
 
         '@media (min-width: 500px)': {
             padding: theme.spacing( 2 ),

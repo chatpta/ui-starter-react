@@ -22,7 +22,7 @@ export default function LoginElement( props ) {
     const handle = handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
 
-    const classes = useCreateLoginElementStyle( { marginTop: 64 } );
+    const classes = useCreateLoginElementStyle( );
 
 
     useEffect( () => {

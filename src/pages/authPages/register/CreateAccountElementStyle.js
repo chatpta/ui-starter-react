@@ -7,7 +7,6 @@ const useCreateAccountElementStyle = makeStyles( theme => ( {
         alignItems: 'center',
         borderRadius: theme.dimensions.borderRadius,
         backgroundColor: theme.palette.main,
-        marginTop: theme.spacing( 8 ),
 
         '@media (min-width: 500px)': {
             padding: theme.spacing( 2 ),
