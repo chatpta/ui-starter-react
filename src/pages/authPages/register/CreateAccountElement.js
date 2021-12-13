@@ -29,7 +29,7 @@ function CreateAccountElement( props ) {
                 userReset( { status: "account created" } );
                 navigate( urls.usersLoginPath() );
             }
-        }, [ user?.pending, user?.message, userReset, navigate, urls.usersLoginPath ]
+        }, [ user?.pending, user?.message, userReset, navigate ]
     );
 
     return (
@@ -55,7 +55,7 @@ function CreateAccountElement( props ) {
                             required
                             fullWidth
                             autoFocus
-                            value={ user?.first_name }
+                            value={ user?.first_name || "" }
                             onChange={ handle.firstNameChange }
                         />
                         <TextField
@@ -66,7 +66,7 @@ function CreateAccountElement( props ) {
                             autoComplete="email"
                             required
                             fullWidth
-                            value={ user?.email }
+                            value={ user?.email || "" }
                             onChange={ handle.emailChange }
                         />
                         <TextField
@@ -78,7 +78,7 @@ function CreateAccountElement( props ) {
                             autoComplete="current-password"
                             required
                             fullWidth
-                            value={ user?.password }
+                            value={ user?.password || "" }
                             onChange={ handle.passwordChange }
                         />
                         <div style={ { display: "flex", justifyContent: "center" } }>

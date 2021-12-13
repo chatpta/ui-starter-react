@@ -59,7 +59,7 @@ function LoginElement( props ) {
                             required
                             autoFocus
                             fullWidth
-                            value={ user?.email }
+                            value={ user?.email || "" }
                             onChange={ handle.emailChange }
                         />
                         <TextField
@@ -71,7 +71,7 @@ function LoginElement( props ) {
                             autoComplete="current-password"
                             required
                             fullWidth
-                            value={ user?.password }
+                            value={ user?.password || "" }
                             onChange={ handle.passwordChange }
                         />
                         <div style={ { display: "flex", justifyContent: "center" } }>

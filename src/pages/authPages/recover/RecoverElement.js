@@ -45,7 +45,7 @@ function RecoverElement( props ) {
                             required
                             autoFocus
                             fullWidth
-                            value={ user?.email }
+                            value={ user?.email || "" }
                             onChange={ handle.emailChange }
                         />
                         <Button
