@@ -19,6 +19,13 @@ const appTheme = createTheme( {
         smallWidth: "600px",
         topBarHeight: 70,
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: { height: 56 }
+            }
+        }
+    }
 } );
 
 export default appTheme;
