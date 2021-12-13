@@ -5,7 +5,7 @@ import {
     Route
 } from "react-router-dom";
 
-import RecoverElementPage from "../pages/authPages/recover/RecoverElementPage";
+import RecoverPage from "../pages/authPages/recover/RecoverPage";
 
 // Lazy load pages
 const HomePageView = React.lazy( () => import('../views/HomePageView') );
@@ -25,7 +25,7 @@ function AppRouter() {
                     <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="login" element={ <LoginView/> }/>
                     <Route path="users/register" element={ <CreateAccountView/> }/>
-                    <Route path="recover" element={ <RecoverElementPage/> }/>
+                    <Route path="recover" element={ <RecoverPage/> }/>
                     <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>
                 </Routes>
