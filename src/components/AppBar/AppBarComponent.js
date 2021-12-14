@@ -4,17 +4,16 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartOutlined from '@mui/icons-material/ShoppingCartOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import useAppBarStyles from "./AppBarComponentStyle";
 import appConfig from "../../config/app-config.json";
+import Search from "./components/Search";
 
 
 export default function AppBarComponent( props ) {
@@ -44,7 +43,7 @@ export default function AppBarComponent( props ) {
     };
 
     const renderMenuItems = ( user ) => {
-        if ( user?.logged_in ) {
+        if ( user?.jwt ) {
             return (
                 [
                     <MenuItem key={ "profile" } onClick={ handleMenuClose }>Profile</MenuItem>,
@@ -133,19 +132,7 @@ export default function AppBarComponent( props ) {
                         </Typography>
                     </Link>
                     <div className={ classes.grow }/>
-                    <div className={ classes.search }>
-                        <div className={ classes.searchIcon }>
-                            <SearchIcon/>
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={ {
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            } }
-                            inputProps={ { 'aria-label': 'search' } }
-                        />
-                    </div>
+                    <Search/>
                     <div className={ classes.grow }/>
                     <div className={ classes.sectionDesktop }>
                         {/*<IconButton aria-label="show 17 new notifications" color="inherit">*/ }
