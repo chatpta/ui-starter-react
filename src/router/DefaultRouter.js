@@ -7,6 +7,7 @@ import {
 
 import { pathAndURL } from "../config";
 import Loading from "../sections/loading/Loading";
+import TermsOfUseView from "../views/TermsOfUseView";
 
 // Lazy load pages
 const HomePageView = React.lazy( () => import('../views/HomePageView') );
@@ -28,6 +29,7 @@ function AppRouter() {
                     <Route path={ pathAndURL.usersRegisterPath() } element={ <UserCreateAccountView/> }/>
                     <Route path={ pathAndURL.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
                     <Route path={ pathAndURL.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
+                    <Route path={ "/terms-of-use" } element={ <TermsOfUseView/> }/>
                     <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>

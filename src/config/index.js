@@ -1,3 +1,4 @@
 module.exports = {
-    pathAndURL: require( './pathAndURL' )
+    pathAndURL: require( './pathAndURL' ),
+    legalPage: require( './LegalPagesData' )
 }
