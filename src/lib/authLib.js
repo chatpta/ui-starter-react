@@ -84,7 +84,7 @@ function handlers( user, userMutate, userFetch ) {
     }
 
 
-    const clickLoginUser = e => {
+    const clickLoginUser = userMutate => e => {
 
         e.stopPropagation();
         e.preventDefault();
@@ -92,6 +92,7 @@ function handlers( user, userMutate, userFetch ) {
         if ( user?.email && user?.password ) {
 
             userFetch( postReqLoginUser( JSON.stringify( { user } ) ) );
+            userMutate( { password: "" } );
 
         }
 
