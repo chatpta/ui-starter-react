@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
+import { pathAndURL } from "../../../config";
 
 
 export default function AppBarChatpta() {
@@ -16,7 +17,7 @@ export default function AppBarChatpta() {
     function handleLoginClick( event ) {
         event.preventDefault();
         event.stopPropagation();
-        navigate( '/users/login' );
+        navigate( pathAndURL.usersLoginPath() );
     }
 
     return (
