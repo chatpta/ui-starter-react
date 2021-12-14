@@ -68,7 +68,7 @@ function handlers( user, userMutate, userFetch ) {
     };
 
     const showRecordExistError = user => {
-        if ( user?.error === "record exist" || user?.error === "wrong credentials" ) {
+        if ( user?.error === "record_exist" || user?.error === "wrong_credentials" ) {
             return ( <RecordExistErrorAlert/> )
         }
     };
