@@ -5,12 +5,10 @@ import useLandStyle from "./landStyle";
 import StoreConnectUserReadOnly from "../../../store/storeConnectUserReadOnly";
 
 
-function LandElement( props ) {
-    const { user } = props;
+function LandElement( ) {
+    // const { user } = props;
 
     const classes = useLandStyle();
-
-    console.log( user );
 
     useEffect( () => {
         }, [  ]

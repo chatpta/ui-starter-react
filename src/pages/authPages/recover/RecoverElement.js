@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
-import { urls } from "../../../config";
+import { pathAndURL } from "../../../config";
 import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./RecoverElementLib";
 
@@ -61,7 +61,7 @@ function RecoverElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link to={ urls.usersLoginPath() }
+                                <Link to={ pathAndURL.usersLoginPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Already have an account? Sign in" }
                                 </Link>

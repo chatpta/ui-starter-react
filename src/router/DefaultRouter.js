@@ -5,7 +5,7 @@ import {
     Route
 } from "react-router-dom";
 
-import { urls } from "../config";
+import { pathAndURL } from "../config";
 
 // Lazy load pages
 const HomePageView = React.lazy( () => import('../views/HomePageView') );
@@ -22,11 +22,11 @@ function AppRouter() {
         <BrowserRouter>
             <Suspense fallback={ <div>Loading...</div> }>
                 <Routes>
-                    <Route exact path={ urls.getRootPath() } element={ <HomePageView/> }/>
-                    <Route path={ urls.usersLoginPath() } element={ <UserLoginView/> }/>
-                    <Route path={ urls.usersRegisterPath() } element={ <UserCreateAccountView/> }/>
-                    <Route path={ urls.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
-                    <Route path={ urls.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
+                    <Route exact path={ pathAndURL.getRootPath() } element={ <HomePageView/> }/>
+                    <Route path={ pathAndURL.usersLoginPath() } element={ <UserLoginView/> }/>
+                    <Route path={ pathAndURL.usersRegisterPath() } element={ <UserCreateAccountView/> }/>
+                    <Route path={ pathAndURL.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
+                    <Route path={ pathAndURL.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
                     <Route path="users" element={ <UsersPageView/> }/>
                     <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>

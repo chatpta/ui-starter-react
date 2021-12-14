@@ -13,7 +13,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 import { handlers } from "./CreateAccountElementLib";
 import Copyright from "../../../components/Copyright/Copyright";
-import { urls } from "../../../config";
+import { pathAndURL } from "../../../config";
 import useCreateAccountElementStyle from "../lib/authStyle";
 
 
@@ -27,7 +27,7 @@ function CreateAccountElement( props ) {
     useEffect( () => {
             if ( user?.message === "account created" && user?.pending === false ) {
                 userReset( { status: "account created" } );
-                navigate( urls.usersLoginPath() );
+                navigate( pathAndURL.usersLoginPath() );
             }
         }, [ user?.pending, user?.message, userReset, navigate ]
     );
@@ -100,7 +100,7 @@ function CreateAccountElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item>
-                                <Link to={ urls.usersLoginPath() }
+                                <Link to={ pathAndURL.usersLoginPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Already have account? Sign in" }
                                 </Link>

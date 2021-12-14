@@ -1,3 +1,3 @@
 module.exports = {
-    urls: require( './urls' )
+    pathAndURL: require( './pathAndURL' )
 }

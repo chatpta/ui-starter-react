@@ -1,4 +1,4 @@
-import { urls } from "../../../config";
+import { pathAndURL } from "../../../config";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -41,7 +41,7 @@ function handlers( user, userMutate, userFetch ) {
 
     function postReq( body ) {
 
-        return new Request( urls.usersChangePasswordURL(),
+        return new Request( pathAndURL.usersChangePasswordURL(),
             {
                 method: 'POST',
                 headers: {
