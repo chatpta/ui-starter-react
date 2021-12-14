@@ -1,5 +1,5 @@
 import React from "react";
-import RecoverPage from "../pages/authPages/recover/RecoverPage";
+import RecoverPage from "../pages/authPages/RecoverPage";
 import AppBarChatpta from "../sections/header/AppBar/AppBarChatpta";
 
 

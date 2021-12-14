@@ -105,6 +105,24 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
+    const clickRecoverPassword = userMutate = e => {
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        if ( user?.email ) {
+
+            userFetch( postReqRecoverPassword( JSON.stringify( { user } ) ) );
+            userMutate( { email: "" } );
+
+        }
+
+    }
+
+    function postReqRecoverPassword( body ) {
+        return postReq( body, pathAndURL.usersPasswordRecoverURL() )
+    }
+
     function postReqLoginUser( body ) {
         return postReq( body, pathAndURL.usersLoginURL() )
     }
@@ -141,6 +159,7 @@ function handlers( user, userMutate, userFetch ) {
         getUserName,
         getJwt,
         showLoginErrorAlert,
+        clickRecoverPassword,
     };
 }
 

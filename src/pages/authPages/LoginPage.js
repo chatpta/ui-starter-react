@@ -43,7 +43,7 @@ function LoginElement( props ) {
                 navigate( "/", { replace: true } );
 
             }
-        }, [ user, handle, navigate, userReset ]
+        }, [ user, handle, navigate, userReset, rememberMe ]
     );
 
     return (

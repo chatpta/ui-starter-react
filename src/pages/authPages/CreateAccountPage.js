@@ -32,7 +32,7 @@ function CreateAccountPage( props ) {
                 userReset( { status: "account created" } );
                 navigate( pathAndURL.usersLoginPath(), { replace: true } );
             }
-        }, [ user?.pending, user?.message, userReset, navigate ]
+        }, [ user, user?.pending, user?.message, userReset, navigate, handle ]
     );
 
     return (

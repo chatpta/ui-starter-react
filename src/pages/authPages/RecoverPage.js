@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import useRecoverElementStyle from "../lib/authStyle";
+import useRecoverElementStyle from "./lib/authStyle";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -10,14 +10,15 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
-import { pathAndURL } from "../../../config";
-import Copyright from "../../../components/Copyright/Copyright";
-import { handlers } from "./RecoverElementLib";
+import { pathAndURL } from "../../config";
+import Copyright from "../../components/Copyright/Copyright";
+import lib from "../../lib";
+import storeConnect from "../../store/storeConnectUserEdit";
 
 
-function RecoverElement( props ) {
+function RecoverPage( props ) {
     const { user, userFetch, userMutate, userReset } = props;
-    const handle = handlers( user, userMutate, userFetch, userReset );
+    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
 
     const classes = useRecoverElementStyle();
 
@@ -75,4 +76,4 @@ function RecoverElement( props ) {
     );
 }
 
-export default RecoverElement;
+export default storeConnect( RecoverPage );
