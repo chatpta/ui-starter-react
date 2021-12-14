@@ -15,8 +15,6 @@ const UserCreateAccountView = React.lazy( () => import('../views/UserCreateAccou
 const UserRecoverPasswordView = React.lazy( ( () => import('../views/UserRecoverPasswordView') ) );
 const UserChangePasswordView = React.lazy( () => import("../views/UserChangePasswordView") );
 const TermsOfUseView = React.lazy( () => import("../views/TermsOfUseView") );
-const UsersPageView = React.lazy( () => import('../views/UsersPageView') );
-const ItemsPageView = React.lazy( () => import('../views/ItemsPageView') );
 const NotFoundPageView = React.lazy( () => import('../views/NotFoundPageView') );
 
 function AppRouter() {
@@ -30,8 +28,6 @@ function AppRouter() {
                     <Route path={ pathAndURL.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
                     <Route path={ pathAndURL.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
                     <Route path={ pathAndURL.legalTermsOfUsePath() } element={ <TermsOfUseView/> }/>
-                    <Route path="users" element={ <UsersPageView/> }/>
-                    <Route path="items" element={ <ItemsPageView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>
                 </Routes>
             </Suspense>
