@@ -98,9 +98,11 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.first_name && user?.email && user?.password ) {
             let userReceived = JSON.stringify( {
-                first_name: user?.first_name,
-                email: user?.email,
-                password: user?.password
+                user: {
+                    first_name: user?.first_name,
+                    email: user?.email,
+                    password: user?.password
+                }
             } );
             userReset( {} );
             userFetch( postReqCreateUser( userReceived ) )
@@ -118,8 +120,10 @@ function handlers( user, userMutate, userFetch ) {
         if ( user?.email && user?.password ) {
 
             let userReceived = JSON.stringify( {
-                email: user?.email,
-                password: user?.password
+                user: {
+                    email: user?.email,
+                    password: user?.password
+                }
             } );
             userMutate( { password: "" } );
             userFetch( postReqLoginUser( userReceived ) );
@@ -135,7 +139,9 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.email ) {
             let userReceived = JSON.stringify( {
-                email: user?.email
+                user: {
+                    email: user?.email
+                }
             } );
             userMutate( { email: "" } );
             userFetch( postReqRecoverPassword( userReceived ) );
