@@ -45,6 +45,9 @@ function CreateAccountPage( props ) {
                     <Typography component="h1" variant="h5">
                         Create account
                     </Typography>
+
+                    { handle.showRecordExistError( user ) || "" }
+
                     <Box
                         component="form"
                         noValidate sx={ { mt: 1 } }
@@ -97,7 +100,7 @@ function CreateAccountPage( props ) {
                             variant="contained"
                             size={ "large" }
                             sx={ { mt: 3, mb: 2 } }
-                            onClick={ handle.clickCreateUser }
+                            onClick={ handle.clickCreateUser( userReset ) }
                         >
                             Send
                         </Button>

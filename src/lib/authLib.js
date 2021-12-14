@@ -1,6 +1,7 @@
 import { pathAndURL } from "../config";
 import LoginErrorAlert from "../pages/authPages/alert/LoginErrorAlert";
 import RecoverPasswordSendSuccessAlert from "../pages/authPages/alert/RecoverPasswordSendSuccessAlert";
+import RecordExistErrorAlert from "../pages/authPages/alert/RecordExistErrorAlert";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -66,6 +67,12 @@ function handlers( user, userMutate, userFetch ) {
         }
     };
 
+    const showRecordExistError = user => {
+        if ( user?.error === "record exist" || user?.error === "wrong credentials" ) {
+            return ( <RecordExistErrorAlert/> )
+        }
+    };
+
     const firstNameChange = ( event ) => {
 
         userMutate( { first_name: event.target.value } );
@@ -84,15 +91,15 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = e => {
+    const clickCreateUser = userReset => e => {
 
         e.stopPropagation();
         e.preventDefault();
 
         if ( user?.first_name && user?.email && user?.password ) {
-
-            userFetch( postReqCreateUser( JSON.stringify( { user } ) ) );
-
+            let userReceived = user;
+            userReset( {} );
+            userFetch( postReqCreateUser( JSON.stringify( { userReceived } ) ) );
         }
 
     }
@@ -105,8 +112,9 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.email && user?.password ) {
 
-            userFetch( postReqLoginUser( JSON.stringify( { user } ) ) );
+            let userReceived = user;
             userMutate( { password: "" } );
+            userFetch( postReqLoginUser( JSON.stringify( { userReceived } ) ) );
 
         }
 
@@ -118,9 +126,9 @@ function handlers( user, userMutate, userFetch ) {
         e.preventDefault();
 
         if ( user?.email ) {
-
-            userFetch( postReqRecoverPassword( JSON.stringify( { user } ) ) );
+            let userReceived = user;
             userMutate( { email: "" } );
+            userFetch( postReqRecoverPassword( JSON.stringify( { userReceived } ) ) );
 
         }
 
@@ -167,6 +175,7 @@ function handlers( user, userMutate, userFetch ) {
         getJwt,
         showLoginErrorAlert,
         showRecoverPasswordAlert,
+        showRecordExistError,
         clickRecoverPassword,
     };
 }
