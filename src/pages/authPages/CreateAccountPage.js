@@ -90,7 +90,7 @@ function CreateAccountPage( props ) {
                         <div style={ { display: "flex", justifyContent: "center" } }>
                             <FormControlLabel
                                 control={ <Checkbox value="remember" color="primary"/> }
-                                label="Remember me"
+                                label="I agree to terms and conditions."
                             />
                         </div>
                         <Button
