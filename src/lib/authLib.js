@@ -17,6 +17,19 @@ function handlers( user, userMutate, userFetch ) {
         return false;
     };
 
+    const saveUserInLocalStore = ( user, rememberMe ) => {
+        if ( rememberMe ) {
+            localStorage.setItem( "user", JSON.stringify( { ...user, loggedIn: true, } ) );
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const deleteUserFromLocalStore = () => {
+        localStorage.removeItem( "user" );
+    }
+
     const logoutUser = ( user, userReset ) => {
 
         if ( user?.loggedIn ) {
@@ -113,6 +126,8 @@ function handlers( user, userMutate, userFetch ) {
         clickCreateUser,
         clickLoginUser,
         logInUser,
+        saveUserInLocalStore,
+        deleteUserFromLocalStore,
         logoutUser,
         isUserLoggedIn,
         getUserName,

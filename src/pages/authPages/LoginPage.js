@@ -21,17 +21,27 @@ import useCreateLoginElementStyle from "./lib/authStyle";
 
 function LoginElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
-    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
-    let navigate = useNavigate();
+    const [ rememberMe, setRememberMe ] = React.useState( false )
 
+    let navigate = useNavigate();
+    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
     const classes = useCreateLoginElementStyle();
 
+    const handleRememberMeChange = ( event ) => {
+        setRememberMe( event.target.checked );
+    };
 
     useEffect( () => {
             if ( handle.logInUser( user, userReset ) ) {
+
+                handle.saveUserInLocalStore( user, rememberMe );
                 navigate( "/", { replace: true } );
+
             } else if ( handle.isUserLoggedIn( user ) ) {
+
+                handle.deleteUserFromLocalStore();
                 navigate( "/", { replace: true } );
+
             }
         }, [ user, handle, navigate, userReset ]
     );
@@ -79,6 +89,8 @@ function LoginElement( props ) {
                             <FormControlLabel
                                 control={ <Checkbox value="remember" color="primary"/> }
                                 label="Remember me"
+                                checked={ rememberMe }
+                                onChange={ handleRememberMeChange }
                             />
                         </div>
                         <Button

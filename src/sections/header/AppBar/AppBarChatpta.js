@@ -27,6 +27,8 @@ function AppBarChatptaElement( props ) {
     function handleLogoutClick( event ) {
         event.preventDefault();
         event.stopPropagation();
+
+        handle.deleteUserFromLocalStore();
         handle.logoutUser( user, userReset );
         navigate( pathAndURL.getRootPath() );
     }
