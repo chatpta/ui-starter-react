@@ -13,10 +13,9 @@ const useAuthStyle = makeStyles( theme => ( {
         alignItems: 'center',
         borderRadius: theme.dimensions.borderRadius,
         backgroundColor: theme.palette.background.default,
-
+        padding: theme.spacing( 2 ),
 
         '@media (min-width: 500px)': {
-            padding: theme.spacing( 2 ),
             boxShadow: theme.shadows[ 10 ],
         },
     } ),
