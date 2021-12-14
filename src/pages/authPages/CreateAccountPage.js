@@ -20,10 +20,14 @@ import storeConnect from "../../store/storeConnectUserEdit";
 
 function CreateAccountPage( props ) {
     const { user, userFetch, userMutate, userReset } = props;
+    const [ agree, setAgree ] = React.useState( false )
     const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
     const classes = useCreateAccountElementStyle();
 
+    const handleAgreeChange = ( event ) => {
+        setAgree( event.target.checked );
+    };
 
     useEffect( () => {
             if ( handle.isUserLoggedIn( user ) ) {
@@ -91,6 +95,8 @@ function CreateAccountPage( props ) {
                             <FormControlLabel
                                 control={ <Checkbox value="remember" color="primary"/> }
                                 label="I agree to terms and conditions."
+                                checked={ agree }
+                                onChange={ handleAgreeChange }
                             />
                         </div>
                         <Button
@@ -100,7 +106,7 @@ function CreateAccountPage( props ) {
                             variant="contained"
                             size={ "large" }
                             sx={ { mt: 3, mb: 2 } }
-                            onClick={ handle.clickCreateUser( userReset ) }
+                            onClick={ handle.clickCreateUser( userReset, agree ) }
                         >
                             Send
                         </Button>

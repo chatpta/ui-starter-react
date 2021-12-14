@@ -91,12 +91,12 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = userReset => e => {
+    const clickCreateUser = ( userReset, agree ) => e => {
 
         e.stopPropagation();
         e.preventDefault();
 
-        if ( user?.first_name && user?.email && user?.password ) {
+        if ( user?.first_name && user?.email && user?.password && agree ) {
             let userReceived = JSON.stringify( {
                 user: {
                     first_name: user?.first_name,
@@ -105,8 +105,7 @@ function handlers( user, userMutate, userFetch ) {
                 }
             } );
             userReset( {} );
-            userFetch( postReqCreateUser( userReceived ) )
-            ;
+            userFetch( postReqCreateUser( userReceived ) );
         }
 
     }
