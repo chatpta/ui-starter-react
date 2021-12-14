@@ -8,7 +8,11 @@ module.exports = {
             login: "/login",
             register: "/register",
             recover: "/recover",
-            changePassword: "/change-password"
+            changePassword: "/change-password",
+        },
+        legal: {
+            root: "/legal",
+            termsOfUse: "/terms-of-use",
         }
     },
     getSiteUrl: function () {
@@ -46,5 +50,11 @@ module.exports = {
     },
     usersChangePasswordURL: function () {
         return this.getHostApi() + this.usersChangePasswordPath();
+    },
+    legalTermsOfUsePath: function () {
+        return this.paths.legal.root + this.paths.legal.termsOfUse;
+    },
+    legalTermsOfUseUrl: function () {
+        return this.getHostApi() + this.paths.legal.termsOfUse;
     },
 }
