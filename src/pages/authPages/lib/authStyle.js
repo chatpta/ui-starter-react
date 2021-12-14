@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-const useLoginElementStyle = makeStyles( theme => ( {
+const useAuthStyle = makeStyles( theme => ( {
     container: () => ( {
         paddingTop: theme.spacing( 2 ),
         '@media (min-width: 500px)': {
@@ -25,4 +25,4 @@ const useLoginElementStyle = makeStyles( theme => ( {
     } ),
 } ), { index: 1 } );
 
-export default useLoginElementStyle;
+export default useAuthStyle;
