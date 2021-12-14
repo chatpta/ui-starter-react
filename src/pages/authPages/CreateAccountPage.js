@@ -94,7 +94,7 @@ function CreateAccountPage( props ) {
                         <div style={ { display: "flex", justifyContent: "center" } }>
                             <FormControlLabel
                                 control={ <Checkbox value="remember" color="primary"/> }
-                                label="I agree to terms and conditions."
+                                label="*I agree to terms and conditions."
                                 checked={ agree }
                                 onChange={ handleAgreeChange }
                             />
