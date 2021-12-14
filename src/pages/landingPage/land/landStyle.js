@@ -2,10 +2,11 @@ import { makeStyles } from "@mui/styles";
 
 const useLandStyle = makeStyles( theme => ( {
     container: () => ( {
-        paddingTop: theme.spacing( 2 ),
-        '@media (min-width: 500px)': {
-            paddingTop: theme.spacing( 8 ),
-        },
+        display: "flex",
+        flexFlow: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
     } ),
 } ), { index: 1 } );
 

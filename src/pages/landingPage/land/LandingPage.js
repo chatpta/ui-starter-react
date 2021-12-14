@@ -5,18 +5,20 @@ import useLandStyle from "./landStyle";
 import StoreConnectUserReadOnly from "../../../store/storeConnectUserReadOnly";
 
 
-function LandingElement( ) {
+function LandingElement() {
     // const { user } = props;
 
     const classes = useLandStyle();
 
     useEffect( () => {
-        }, [  ]
+        }, []
     );
 
     return (
         <div className={ classes.container }>
-            <h1>This is landing page</h1>
+            <h1>CHATPTA</h1>
+            <h2>Canada's own Asian store</h2>
+            <h3>Coming soon</h3>
         </div>
     );
 }
