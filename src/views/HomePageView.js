@@ -3,10 +3,12 @@ import React from "react";
 import LinkCH from "../components/LinkCH/LinkCH";
 import ErrorBoundary from "../ErrorBoundry/ErrorBoundary";
 import LandPage from "../pages/landingPage/land/LandPage";
+import Header from "../sections/header/Header";
 
 export default function HomePageView() {
     return (
         <React.Fragment>
+            <Header/>
             <h1>Home Page</h1>
             <LandPage/>
             <ErrorBoundary>

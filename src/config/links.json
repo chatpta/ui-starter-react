@@ -1,0 +1,41 @@
+{
+  "apiV1": {
+    "productsRoute": "/products",
+    "productsApi": "/api/products",
+    "imagesRoute": "/images",
+    "imagesApi": "/api/images",
+    "headers": {
+      "Accept": "application/json",
+      "Content-type": "application/json"
+    },
+    "devPort": {
+      "product": "3001",
+      "images": "3002"
+    }
+  },
+  "seller": {
+    "admin": [
+      {
+        "name": "my products",
+        "link": "/products"
+      },
+      {
+        "name": "Create product",
+        "link": "/create/product"
+      },
+      {
+        "name": "Search",
+        "link": "/search"
+      },
+      {
+        "name": "login",
+        "link": "/login"
+      },
+      {
+        "name": "home",
+        "link": "/"
+      }
+    ]
+  }
+}
+
