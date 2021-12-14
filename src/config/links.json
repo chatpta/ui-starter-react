@@ -16,24 +16,12 @@
   "seller": {
     "admin": [
       {
-        "name": "my products",
-        "link": "/products"
-      },
-      {
-        "name": "Create product",
-        "link": "/create/product"
-      },
-      {
-        "name": "Search",
-        "link": "/search"
+        "name": "Jobs",
+        "link": "/jobs"
       },
       {
         "name": "login",
         "link": "/login"
-      },
-      {
-        "name": "home",
-        "link": "/"
       }
     ]
   }
