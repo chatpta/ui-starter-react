@@ -32,6 +32,9 @@ function RecoverPage( props ) {
                     <Typography component="h1" variant="h5">
                         Recover password
                     </Typography>
+
+                    { handle.showRecoverPasswordAlert( user ) || "" }
+
                     <Box
                         component="form"
                         noValidate sx={ { mt: 1 } }
@@ -56,7 +59,7 @@ function RecoverPage( props ) {
                             variant="contained"
                             size={ "large" }
                             sx={ { mt: 3, mb: 2 } }
-                            onClick={ handle.clickRecoverPassword }
+                            onClick={ handle.clickRecoverPassword( userMutate ) }
                         >
                             Send
                         </Button>

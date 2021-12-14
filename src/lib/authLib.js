@@ -1,5 +1,6 @@
 import { pathAndURL } from "../config";
 import LoginErrorAlert from "../pages/authPages/alert/LoginErrorAlert";
+import RecoverPasswordSendSuccessAlert from "../pages/authPages/alert/RecoverPasswordSendSuccessAlert";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -59,6 +60,12 @@ function handlers( user, userMutate, userFetch ) {
         }
     };
 
+    const showRecoverPasswordAlert = user => {
+        if ( user?.message === "please check your email" ) {
+            return ( <RecoverPasswordSendSuccessAlert/> )
+        }
+    };
+
     const firstNameChange = ( event ) => {
 
         userMutate( { first_name: event.target.value } );
@@ -67,7 +74,7 @@ function handlers( user, userMutate, userFetch ) {
 
     const emailChange = ( event ) => {
 
-        userMutate( { email: event.target.value, error: null } );
+        userMutate( { email: event.target.value, error: null, message: "" } );
 
     }
 
@@ -105,7 +112,7 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickRecoverPassword = userMutate = e => {
+    const clickRecoverPassword = userMutate => e => {
 
         e.stopPropagation();
         e.preventDefault();
@@ -159,6 +166,7 @@ function handlers( user, userMutate, userFetch ) {
         getUserName,
         getJwt,
         showLoginErrorAlert,
+        showRecoverPasswordAlert,
         clickRecoverPassword,
     };
 }
