@@ -1,5 +1,5 @@
 import { pathAndURL } from "../config";
-import LoginErrorAlert from "../alert/LoginErrorAlert";
+import LoginErrorAlert from "../pages/authPages/alert/LoginErrorAlert";
 
 function handlers( user, userMutate, userFetch ) {
 
