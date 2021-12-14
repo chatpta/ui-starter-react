@@ -1,7 +1,7 @@
-import { pathAndURL } from "../config";
-import LoginErrorAlert from "../pages/authPages/alert/LoginErrorAlert";
-import RecoverPasswordSendSuccessAlert from "../pages/authPages/alert/RecoverPasswordSendSuccessAlert";
-import RecordExistErrorAlert from "../pages/authPages/alert/RecordExistErrorAlert";
+import { pathAndURL } from "../../../config";
+import LoginErrorAlert from "../alert/LoginErrorAlert";
+import RecoverPasswordSendSuccessAlert from "../alert/RecoverPasswordSendSuccessAlert";
+import RecordExistErrorAlert from "../alert/RecordExistErrorAlert";
 
 function handlers( user, userMutate, userFetch ) {
 

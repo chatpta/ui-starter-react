@@ -15,7 +15,7 @@ import Container from '@mui/material/Container';
 
 import { pathAndURL } from "../../config";
 import Copyright from "../../components/Copyright/Copyright";
-import lib from "../../lib";
+import lib from "./lib";
 import useCreateLoginElementStyle from "./lib/authStyle";
 
 

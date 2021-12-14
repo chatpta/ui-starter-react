@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 import { pathAndURL } from "../../config";
 import Copyright from "../../components/Copyright/Copyright";
-import lib from "../../lib";
+import lib from "./lib";
 import storeConnect from "../../store/storeConnectUserEdit";
 
 

@@ -11,7 +11,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-import lib from "../../lib";
+import lib from "./lib";
 import Copyright from "../../components/Copyright/Copyright";
 import { pathAndURL } from "../../config";
 import useCreateAccountElementStyle from "./lib/authStyle";

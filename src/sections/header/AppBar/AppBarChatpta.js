@@ -9,14 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
 import { pathAndURL } from "../../../config";
 
-import lib from "../../../lib";
+import { handlers } from "./appBarLib";
 import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
 
 
 function AppBarChatptaElement( props ) {
     const { user, userReset } = props;
     let navigate = useNavigate();
-    const handle = lib.authLib.handlers();
+    const handle = handlers();
 
     function handleLoginClick( event ) {
         event.preventDefault();
