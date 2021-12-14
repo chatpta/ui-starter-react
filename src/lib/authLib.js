@@ -1,4 +1,5 @@
 import { pathAndURL } from "../config";
+import LoginErrorAlert from "../alert/LoginErrorAlert";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -52,6 +53,12 @@ function handlers( user, userMutate, userFetch ) {
         return user?.loggedIn;
     };
 
+    const showLoginErrorAlert = user => {
+        if ( user?.error === "wrong credentials" ) {
+            return ( <LoginErrorAlert/> )
+        }
+    };
+
     const firstNameChange = ( event ) => {
 
         userMutate( { first_name: event.target.value } );
@@ -60,13 +67,13 @@ function handlers( user, userMutate, userFetch ) {
 
     const emailChange = ( event ) => {
 
-        userMutate( { email: event.target.value } );
+        userMutate( { email: event.target.value, error: null } );
 
     }
 
     const passwordChange = ( event ) => {
 
-        userMutate( { password: event.target.value } );
+        userMutate( { password: event.target.value, error: null } );
 
     }
 
@@ -132,7 +139,8 @@ function handlers( user, userMutate, userFetch ) {
         logoutUser,
         isUserLoggedIn,
         getUserName,
-        getJwt
+        getJwt,
+        showLoginErrorAlert,
     };
 }
 

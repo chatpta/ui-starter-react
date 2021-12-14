@@ -56,6 +56,9 @@ function LoginElement( props ) {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
+
+                    { handle.showLoginErrorAlert( user ) || "" }
+
                     <Box
                         component="form"
                         noValidate sx={ { mt: 1 } }
