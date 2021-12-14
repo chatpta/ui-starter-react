@@ -27,7 +27,7 @@ function CreateAccountElement( props ) {
     useEffect( () => {
             if ( user?.message === "account created" && user?.pending === false ) {
                 userReset( { status: "account created" } );
-                navigate( pathAndURL.usersLoginPath() );
+                navigate( pathAndURL.usersLoginPath(), { replace: true } );
             }
         }, [ user?.pending, user?.message, userReset, navigate ]
     );

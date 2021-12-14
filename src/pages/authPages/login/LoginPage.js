@@ -30,7 +30,7 @@ function LoginElement( props ) {
     useEffect( () => {
             if ( user?.jwt && user?.pending === false ) {
                 userReset( { status: "logged in", jwt: user?.jwt } );
-                navigate( "/" );
+                navigate( "/" , { replace: true });
             }
         }, [ user?.pending, userReset, user?.jwt, navigate, user ]
     );
