@@ -8,7 +8,7 @@ const prsAct = reduxStoreUtility.createAsyncActions( "User" );
 const userFetch = dispatch => request => dispatch( prsAct.userFetch( request ) );
 
 
-function StoreConnect( Element ) {
+function StoreConnectUserEdit( Element ) {
 
     const mapStateToProps = state => {
         return {
@@ -27,4 +27,4 @@ function StoreConnect( Element ) {
     return connect( mapStateToProps, mapDispatchToProps )( Element );
 }
 
-export default StoreConnect;
+export default StoreConnectUserEdit;

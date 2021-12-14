@@ -1,4 +1,4 @@
-import StoreConnect from "../lib/storeConnect";
+import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
 import React from 'react';
 import { useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
@@ -104,4 +104,4 @@ function LoginElement( props ) {
     );
 }
 
-export default StoreConnect( LoginElement );
+export default StoreConnectUserEdit( LoginElement );

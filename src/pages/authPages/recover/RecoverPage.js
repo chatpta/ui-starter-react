@@ -1,4 +1,4 @@
 import RecoverElement from "./RecoverElement";
-import storeConnect from "../lib/storeConnect";
+import storeConnect from "../../../store/storeConnectUserEdit";
 
 export default storeConnect( RecoverElement );
