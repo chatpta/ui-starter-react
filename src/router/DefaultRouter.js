@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import { pathAndURL } from "../config";
+import Loading from "../sections/loading/Loading";
 
 // Lazy load pages
 const HomePageView = React.lazy( () => import('../views/HomePageView') );
@@ -20,7 +21,7 @@ const NotFoundPageView = React.lazy( () => import('../views/NotFoundPageView') )
 function AppRouter() {
     return (
         <BrowserRouter>
-            <Suspense fallback={ <div>Loading...</div> }>
+            <Suspense fallback={ <Loading/> }>
                 <Routes>
                     <Route exact path={ pathAndURL.getRootPath() } element={ <HomePageView/> }/>
                     <Route path={ pathAndURL.usersLoginPath() } element={ <UserLoginView/> }/>
