@@ -56,7 +56,7 @@ function handlers( user, userMutate, userFetch ) {
     };
 
     const showLoginErrorAlert = user => {
-        if ( user?.error === "wrong credentials" ) {
+        if ( user?.error === "validation_failure" ) {
             return ( <LoginErrorAlert/> )
         }
     };
@@ -97,9 +97,10 @@ function handlers( user, userMutate, userFetch ) {
         e.preventDefault();
 
         if ( user?.first_name && user?.email && user?.password ) {
-            let userReceived = user;
+            let userReceived = JSON.stringify( user );
             userReset( {} );
-            userFetch( postReqCreateUser( JSON.stringify( { userReceived } ) ) );
+            userFetch( postReqCreateUser( userReceived ) )
+            ;
         }
 
     }
@@ -112,9 +113,9 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.email && user?.password ) {
 
-            let userReceived = user;
+            let userReceived = JSON.stringify( user );
             userMutate( { password: "" } );
-            userFetch( postReqLoginUser( JSON.stringify( { userReceived } ) ) );
+            userFetch( postReqLoginUser( userReceived ) );
 
         }
 
@@ -126,9 +127,9 @@ function handlers( user, userMutate, userFetch ) {
         e.preventDefault();
 
         if ( user?.email ) {
-            let userReceived = user;
+            let userReceived = JSON.stringify( user );
             userMutate( { email: "" } );
-            userFetch( postReqRecoverPassword( JSON.stringify( { userReceived } ) ) );
+            userFetch( postReqRecoverPassword( userReceived ) );
 
         }
 
