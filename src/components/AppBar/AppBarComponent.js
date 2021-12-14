@@ -13,7 +13,8 @@ import ShoppingCartOutlined from '@mui/icons-material/ShoppingCartOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import useAppBarStyles from "./AppBarComponentStyle";
 import appConfig from "../../config/app-config.json";
-import Search from "./components/Search";
+// import RightSide from "./components/rightSide/RightSide";
+// import Search from "./components/Search";
 
 
 export default function AppBarComponent( props ) {
@@ -91,14 +92,6 @@ export default function AppBarComponent( props ) {
                 </IconButton>
                 <p>Cart</p>
             </MenuItem>
-            {/*<MenuItem>*/ }
-            {/*    <IconButton aria-label="show 11 new notifications" color="inherit">*/ }
-            {/*        <Badge badgeContent={11} color="secondary">*/ }
-            {/*            <NotificationsIcon />*/ }
-            {/*        </Badge>*/ }
-            {/*    </IconButton>*/ }
-            {/*    <p>Notifications</p>*/ }
-            {/*</MenuItem>*/ }
             <MenuItem onClick={ handleProfileMenuOpen }>
                 <IconButton
                     aria-label="account of current user"
@@ -132,31 +125,9 @@ export default function AppBarComponent( props ) {
                         </Typography>
                     </Link>
                     <div className={ classes.grow }/>
-                    <Search/>
-                    <div className={ classes.grow }/>
-                    <div className={ classes.sectionDesktop }>
-                        {/*<IconButton aria-label="show 17 new notifications" color="inherit">*/ }
-                        {/*    <Badge badgeContent={17} color="secondary">*/ }
-                        {/*        <NotificationsIcon />*/ }
-                        {/*    </Badge>*/ }
-                        {/*</IconButton>*/ }
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={ menuId }
-                            aria-haspopup="true"
-                            onClick={ handleProfileMenuOpen }
-                            color="inherit"
-                        >
-                            <AccountCircle/>
-                        </IconButton>
-                        <span className={ classes.horizontalSpace }>&nbsp;</span>
-                        <IconButton aria-label="shopping cart" color="inherit">
-                            <Badge badgeContent={ 4 } color="secondary">
-                                <ShoppingCartOutlined/>
-                            </Badge>
-                        </IconButton>
-                    </div>
+                    {/*<Search/>*/ }
+                    {/*<div className={ classes.grow }/>*/}
+                    {/*<RightSide/>*/}
                     <div className={ classes.sectionMobile }>
                         <IconButton
                             aria-label="show more"
