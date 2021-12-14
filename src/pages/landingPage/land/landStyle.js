@@ -7,6 +7,7 @@ const useLandStyle = makeStyles( theme => ( {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
+        color: theme.palette.primary.main,
     } ),
 } ), { index: 1 } );
 
