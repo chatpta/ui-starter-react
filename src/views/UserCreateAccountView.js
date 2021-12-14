@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountPage from "../pages/authPages/register/CreateAccountPage";
+import CreateAccountPage from "../pages/authPages/CreateAccountPage";
 import AppBarChatpta from "../sections/header/AppBar/AppBarChatpta";
 
 

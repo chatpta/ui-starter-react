@@ -11,13 +11,14 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-import { handlers } from "./CreateAccountElementLib";
-import Copyright from "../../../components/Copyright/Copyright";
-import { pathAndURL } from "../../../config";
-import useCreateAccountElementStyle from "../lib/authStyle";
+import { handlers } from "./lib/authLib";
+import Copyright from "../../components/Copyright/Copyright";
+import { pathAndURL } from "../../config";
+import useCreateAccountElementStyle from "./lib/authStyle";
+import storeConnect from "../../store/storeConnectUserEdit";
 
 
-function CreateAccountElement( props ) {
+function CreateAccountPage( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const handle = handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
@@ -114,4 +115,4 @@ function CreateAccountElement( props ) {
     );
 }
 
-export default CreateAccountElement;
+export default storeConnect( CreateAccountPage );
