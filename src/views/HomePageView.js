@@ -2,11 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import React from "react";
 import LinkCH from "../components/LinkCH/LinkCH";
 import ErrorBoundary from "../ErrorBoundry/ErrorBoundary";
+import LandPage from "../pages/landingPage/land/LandPage";
 
 export default function HomePageView() {
     return (
         <React.Fragment>
             <h1>Home Page</h1>
+            <LandPage/>
             <ErrorBoundary>
                 <nav
                     style={ {
