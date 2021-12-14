@@ -1,10 +1,10 @@
 import React from "react";
-import LandPage from "../pages/landingPage/land/LandPage";
+import LandingPage from "../pages/landingPage/land/LandingPage";
 
 export default function HomePageView() {
     return (
         <div>
-            <LandPage/>
+            <LandingPage/>
         </div>
     );
 }

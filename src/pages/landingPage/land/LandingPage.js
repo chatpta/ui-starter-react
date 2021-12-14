@@ -5,7 +5,7 @@ import useLandStyle from "./landStyle";
 import StoreConnectUserReadOnly from "../../../store/storeConnectUserReadOnly";
 
 
-function LandElement( ) {
+function LandingElement( ) {
     // const { user } = props;
 
     const classes = useLandStyle();
@@ -21,4 +21,4 @@ function LandElement( ) {
     );
 }
 
-export default StoreConnectUserReadOnly( LandElement );
+export default StoreConnectUserReadOnly( LandingElement );
