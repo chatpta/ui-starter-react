@@ -56,7 +56,7 @@ function handlers( user, userMutate, userFetch ) {
     };
 
     const showLoginErrorAlert = user => {
-        if ( user?.error === "validation_failure" ) {
+        if ( user?.error === "validation_failure" || user?.error === "record_not_found" ) {
             return ( <LoginErrorAlert/> )
         }
     };
