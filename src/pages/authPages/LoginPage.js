@@ -28,11 +28,12 @@ function LoginElement( props ) {
 
 
     useEffect( () => {
-            if ( user?.jwt && user?.pending === false ) {
-                userReset( { status: "logged in", jwt: user?.jwt } );
-                navigate( "/" , { replace: true });
+            if ( handle.loggedInUser( user, userReset ) ) {
+                navigate( "/", { replace: true } );
+            } else if ( handle.isUserLoggedIn( user ) ) {
+                navigate( "/", { replace: true } );
             }
-        }, [ user?.pending, userReset, user?.jwt, navigate, user ]
+        }, [ user, handle, navigate, userReset ]
     );
 
     return (

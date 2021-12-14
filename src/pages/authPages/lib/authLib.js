@@ -2,6 +2,33 @@ import { pathAndURL } from "../../../config";
 
 function handlers( user, userMutate, userFetch ) {
 
+    const loggedInUser = ( user, userReset ) => {
+
+        if ( user?.jwt && user?.pending === false ) {
+
+            userReset( {
+                loggedIn: true,
+                jwt: user?.jwt,
+                name: user?.name
+            } );
+            return true;
+        }
+
+        return false;
+    };
+
+    const getUserName = ( user ) => {
+        return user?.name;
+    };
+
+    const getJwt = ( user ) => {
+        return user?.jwt;
+    };
+
+    const isUserLoggedIn = ( user ) => {
+        return user?.loggedIn;
+    };
+
     const firstNameChange = ( event ) => {
 
         userMutate( { first_name: event.target.value } );
@@ -74,7 +101,11 @@ function handlers( user, userMutate, userFetch ) {
         emailChange,
         passwordChange,
         clickCreateUser,
-        clickLoginUser
+        clickLoginUser,
+        loggedInUser,
+        isUserLoggedIn,
+        getUserName,
+        getJwt
     };
 }
 
