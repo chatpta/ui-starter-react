@@ -1,4 +1,13 @@
 .App {
-    background-color: #faecd9;
     min-height: 100vh;
+    background-image: url("../assets/images/Sun-Tornado.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
+.overlay {
+    min-height: 100vh;
+    background-color: rgb(250, 236, 217, .3);
+}
+

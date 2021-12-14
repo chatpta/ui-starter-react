@@ -4,7 +4,9 @@ import "./app.css";
 function App() {
     return (
         <div className="App">
-            <DefaultRouter/>
+            <div className={ "overlay" }>
+                <DefaultRouter/>
+            </div>
         </div>
     );
 }
