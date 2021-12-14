@@ -1,8 +1,10 @@
 import React from 'react';
 import { useEffect } from "react";
+import Button from '@mui/material/Button';
 
 import useLandStyle from "./landStyle";
 import StoreConnectUserReadOnly from "../../../store/storeConnectUserReadOnly";
+import Copyright from "../../../components/Copyright/Copyright";
 
 
 function LandingElement() {
@@ -19,6 +21,12 @@ function LandingElement() {
             <h1>CHATPTA</h1>
             <h2>Canada's own Asian store</h2>
             <h3>Coming soon</h3>
+
+            <Button variant="outlined" size="large">
+                Job openings
+            </Button>
+
+            <Copyright style={ { marginTop: "96px" } }/>
         </div>
     );
 }
