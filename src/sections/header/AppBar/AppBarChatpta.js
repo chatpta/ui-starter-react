@@ -9,15 +9,44 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
 import { pathAndURL } from "../../../config";
 
+import lib from "../../../lib";
+import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
 
-export default function AppBarChatpta() {
 
+function AppBarChatptaElement( props ) {
+    const { user, userReset } = props;
     let navigate = useNavigate();
+    const handle = lib.authLib.handlers();
 
     function handleLoginClick( event ) {
         event.preventDefault();
         event.stopPropagation();
         navigate( pathAndURL.usersLoginPath() );
+    }
+
+    function handleLogoutClick( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+        handle.logoutUser( user, userReset );
+        navigate( pathAndURL.getRootPath() );
+    }
+
+    function renderButton( handlers ) {
+        if ( handlers.isUserLoggedIn( user ) ) {
+            return (
+                <Button
+                    color="secondary"
+                    onClick={ handleLogoutClick }
+                >Logout</Button>
+            );
+        } else {
+            return (
+                <Button
+                    color="secondary"
+                    onClick={ handleLoginClick }
+                >Login</Button>
+            );
+        }
     }
 
     return (
@@ -36,12 +65,11 @@ export default function AppBarChatpta() {
                     <Typography variant="h6" component="div" sx={ { flexGrow: 1 } }>
 
                     </Typography>
-                    <Button
-                        color="secondary"
-                        onClick={ handleLoginClick }
-                    >Login</Button>
+                    { renderButton( handle ) }
                 </Toolbar>
             </AppBar>
         </Box>
     );
 }
+
+export default StoreConnectUserEdit( AppBarChatptaElement );

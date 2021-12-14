@@ -2,7 +2,7 @@ import { pathAndURL } from "../config";
 
 function handlers( user, userMutate, userFetch ) {
 
-    const loggedInUser = ( user, userReset ) => {
+    const logInUser = ( user, userReset ) => {
 
         if ( user?.jwt && user?.pending === false ) {
 
@@ -11,6 +11,16 @@ function handlers( user, userMutate, userFetch ) {
                 jwt: user?.jwt,
                 name: user?.name
             } );
+            return true;
+        }
+
+        return false;
+    };
+
+    const logoutUser = ( user, userReset ) => {
+
+        if ( user?.loggedIn ) {
+            userReset( {} );
             return true;
         }
 
@@ -102,7 +112,8 @@ function handlers( user, userMutate, userFetch ) {
         passwordChange,
         clickCreateUser,
         clickLoginUser,
-        loggedInUser,
+        logInUser,
+        logoutUser,
         isUserLoggedIn,
         getUserName,
         getJwt

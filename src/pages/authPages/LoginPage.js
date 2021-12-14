@@ -28,7 +28,7 @@ function LoginElement( props ) {
 
 
     useEffect( () => {
-            if ( handle.loggedInUser( user, userReset ) ) {
+            if ( handle.logInUser( user, userReset ) ) {
                 navigate( "/", { replace: true } );
             } else if ( handle.isUserLoggedIn( user ) ) {
                 navigate( "/", { replace: true } );
