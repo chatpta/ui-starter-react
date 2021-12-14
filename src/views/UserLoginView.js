@@ -1,5 +1,5 @@
 import React from "react";
-import LoginPage from "../pages/authPages/login/LoginPage";
+import LoginPage from "../pages/authPages/LoginPage";
 import AppBarChatpta from "../sections/header/AppBar/AppBarChatpta";
 
 

@@ -1,4 +1,4 @@
-import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
+import StoreConnectUserEdit from "../../store/storeConnectUserEdit";
 import React from 'react';
 import { useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
@@ -13,10 +13,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
-import { pathAndURL } from "../../../config";
-import Copyright from "../../../components/Copyright/Copyright";
-import { handlers } from "./loginElementLib";
-import useCreateLoginElementStyle from "../lib/authStyle";
+import { pathAndURL } from "../../config";
+import Copyright from "../../components/Copyright/Copyright";
+import { handlers } from "./lib/authLib";
+import useCreateLoginElementStyle from "./lib/authStyle";
 
 
 function LoginElement( props ) {

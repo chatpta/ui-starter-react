@@ -27,15 +27,37 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.first_name && user?.email && user?.password ) {
 
-            userFetch( postReq( JSON.stringify( { user } ) ) );
+            userFetch( postReqCreateUser( JSON.stringify( { user } ) ) );
 
         }
 
     }
 
-    function postReq( body ) {
 
-        return new Request( pathAndURL.usersRegisterURL(),
+    const clickLoginUser = e => {
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        if ( user?.email && user?.password ) {
+
+            userFetch( postReqLoginUser( JSON.stringify( { user } ) ) );
+
+        }
+
+    }
+
+    function postReqLoginUser( body ) {
+        return postReq( body, pathAndURL.usersLoginURL() )
+    }
+
+    function postReqCreateUser( body ) {
+        return postReq( body, pathAndURL.usersRegisterURL() )
+    }
+
+    function postReq( body, url ) {
+
+        return new Request( url,
             {
                 method: 'POST',
                 headers: {
@@ -51,7 +73,8 @@ function handlers( user, userMutate, userFetch ) {
         firstNameChange,
         emailChange,
         passwordChange,
-        clickCreateUser
+        clickCreateUser,
+        clickLoginUser
     };
 }
 
