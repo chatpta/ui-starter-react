@@ -11,7 +11,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-import { handlers } from "./lib/authLib";
+import lib from "../../lib";
 import Copyright from "../../components/Copyright/Copyright";
 import { pathAndURL } from "../../config";
 import useCreateAccountElementStyle from "./lib/authStyle";
@@ -20,7 +20,7 @@ import storeConnect from "../../store/storeConnectUserEdit";
 
 function CreateAccountPage( props ) {
     const { user, userFetch, userMutate, userReset } = props;
-    const handle = handlers( user, userMutate, userFetch, userReset );
+    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
     const classes = useCreateAccountElementStyle();
 

@@ -15,13 +15,13 @@ import Container from '@mui/material/Container';
 
 import { pathAndURL } from "../../config";
 import Copyright from "../../components/Copyright/Copyright";
-import { handlers } from "./lib/authLib";
+import lib from "../../lib";
 import useCreateLoginElementStyle from "./lib/authStyle";
 
 
 function LoginElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
-    const handle = handlers( user, userMutate, userFetch, userReset );
+    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
     let navigate = useNavigate();
 
     const classes = useCreateLoginElementStyle();

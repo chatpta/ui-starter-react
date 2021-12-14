@@ -1,4 +1,4 @@
-import { pathAndURL } from "../../../config";
+import { pathAndURL } from "../config";
 
 function handlers( user, userMutate, userFetch ) {
 
