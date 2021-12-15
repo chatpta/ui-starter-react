@@ -31,6 +31,22 @@ function CreateAccountPage( props ) {
         setAgree( event.target.checked );
     };
 
+    function agreeToTermsAndConditionLabel() {
+        return (
+            <div>
+                <span>I accept the </span>
+                <Link to={ pathAndURL.legalTermsOfUsePath() }
+                      style={ { color: "black" } }>
+                    terms of use
+                </Link>
+                <span> and </span>
+                <Link to={ pathAndURL.legalTermsOfUsePath() }
+                      style={ { color: "black" } }>
+                    privacy policy.</Link>
+            </div>
+        );
+    }
+
     useEffect( () => {
             if ( handle.isUserLoggedIn( user ) ) {
                 navigate( "/", { replace: true } );
@@ -98,19 +114,7 @@ function CreateAccountPage( props ) {
                         <div style={ { display: "flex", justifyContent: "center" } }>
                             <FormControlLabel
                                 control={ <Checkbox value="remember" color="primary"/> }
-                                label={
-                                    <div>
-                                        <span>I accept the </span>
-                                        <Link to={ pathAndURL.legalTermsOfUsePath() }
-                                              style={ { color: "black" } }>
-                                            terms of use
-                                        </Link>
-                                        <span> and </span>
-                                        <Link to={ pathAndURL.legalTermsOfUsePath() }
-                                              style={ { color: "black" } }>
-                                            privacy policy.</Link>
-                                    </div>
-                                }
+                                label={ agreeToTermsAndConditionLabel() }
                                 checked={ agree }
                                 onChange={ handleAgreeChange }
                             />
