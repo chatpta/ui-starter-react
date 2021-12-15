@@ -2,6 +2,7 @@ import { pathAndURL } from "../../../config";
 import LoginErrorAlert from "../alert/LoginErrorAlert";
 import RecoverPasswordSendSuccessAlert from "../alert/RecoverPasswordSendSuccessAlert";
 import RecordExistErrorAlert from "../alert/RecordExistErrorAlert";
+import AgreeToTermsAndConditions from "../alert/AgreeToTermsAndConditions";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -73,6 +74,12 @@ function handlers( user, userMutate, userFetch ) {
         }
     };
 
+    const showAgreeToTermsAndConditions = ( submit, agree ) => {
+        if ( submit && ( !agree ) ) {
+            return ( <AgreeToTermsAndConditions/> );
+        }
+    };
+
     const firstNameChange = ( event ) => {
 
         userMutate( { first_name: event.target.value } );
@@ -91,10 +98,12 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = ( userReset, agree ) => e => {
+    const clickCreateUser = ( userReset, agree, setSubmit ) => e => {
 
         e.stopPropagation();
         e.preventDefault();
+
+        setSubmit( true );
 
         if ( user?.first_name && user?.email && user?.password && agree ) {
             let userReceived = JSON.stringify( {
@@ -191,6 +200,7 @@ function handlers( user, userMutate, userFetch ) {
         showLoginErrorAlert,
         showRecoverPasswordAlert,
         showRecordExistError,
+        showAgreeToTermsAndConditions,
         clickRecoverPassword,
     };
 }
