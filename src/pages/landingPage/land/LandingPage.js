@@ -20,7 +20,7 @@ function LandingElement() {
         <div className={ classes.container }>
             <h1>CHATPTA</h1>
             <h2>Canada's own Asian store</h2>
-            <h3>Coming soon</h3>
+            <h3>Coming soon...</h3>
 
             <Button variant="outlined" size="large" className={ classes.button }>
                 Job openings
