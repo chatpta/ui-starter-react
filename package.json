@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@chatpta/redux-store-utility": "^0.0.1",
+    "@chatpta/validate": "^2.0.4",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.2.1",

@@ -1,3 +1,4 @@
+import validate from "@chatpta/validate";
 import { pathAndURL } from "../../../config";
 import LoginErrorAlert from "../alert/LoginErrorAlert";
 import RecoverPasswordSendSuccessAlert from "../alert/RecoverPasswordSendSuccessAlert";
@@ -87,18 +88,43 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const handleNameBlur = ( error, setError ) => ( ) => {
-        setError( { ...error, name: true } );
+    const handleNameBlur = ( error, setError ) => ( event ) => {
+
+        if ( validate.isCharactersString( event?.target?.value ) ) {
+            setError( { ...error, name: false } );
+        } else {
+            setError( { ...error, name: true } );
+        }
     }
 
-    const emailChange = ( event ) => {
+    const handleEmailBlur = ( error, setError ) => ( event ) => {
 
+        if ( validate.isEmailString( event?.target?.value ) ) {
+            setError( { ...error, email: false } );
+        } else {
+            setError( { ...error, email: true } );
+        }
+    }
+
+    const handlePasswordBlur = ( error, setError ) => ( event ) => {
+
+        if ( validate.isPasswordString( event?.target?.value ) ) {
+            setError( { ...error, password: false } );
+        } else {
+            setError( { ...error, password: true } );
+        }
+    }
+
+    const emailChange = ( error, setError ) => ( event ) => {
+
+        setError( { ...error, email: false } )
         userMutate( { email: event.target.value, error: null, message: "" } );
 
     }
 
-    const passwordChange = ( event ) => {
+    const passwordChange = ( error, setError ) => ( event ) => {
 
+        setError( { ...error, password: false } )
         userMutate( { password: event.target.value, error: null } );
 
     }
@@ -207,7 +233,9 @@ function handlers( user, userMutate, userFetch ) {
         showRecordExistError,
         showAgreeToTermsAndConditions,
         clickRecoverPassword,
-        handleNameBlur
+        handleNameBlur,
+        handleEmailBlur,
+        handlePasswordBlur
     };
 }
 
