@@ -45,7 +45,9 @@ function AppBarChatptaElement( props ) {
                         onClick={ handleLogoutClick }
                     >Logout</Button>
                     <Stack direction="row" spacing={ 2 }>
-                        <Avatar sx={{ bgcolor: deepOrange[500] }}>{ user?.name[0] }</Avatar>
+                        <Avatar sx={ {
+                            bgcolor: deepOrange[ 500 ],
+                        } }>{ user?.name[ 0 ] }</Avatar>
                     </Stack>
                 </React.Fragment>
             );
