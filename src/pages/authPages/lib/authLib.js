@@ -81,7 +81,7 @@ function handlers( user, userMutate, userFetch ) {
         }
     };
 
-    const firstNameChange = ( error, setError ) => ( event ) => {
+    const firstNameChangeCreateUser = ( error, setError ) => ( event ) => {
 
         setError( { ...error, name: false } )
         userMutate( { first_name: event.target.value } );
@@ -121,7 +121,7 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const emailChange = ( error, setError ) => ( event ) => {
+    const emailChangeCreateUser = ( error, setError ) => ( event ) => {
 
         setError( { ...error, email: false } )
         userMutate( { email: event.target.value, error: null, message: "" } );
@@ -134,7 +134,7 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const passwordChange = ( error, setError ) => ( event ) => {
+    const passwordChangeCreateUser = ( error, setError ) => ( event ) => {
 
         setError( { ...error, password: false } )
         userMutate( { password: event.target.value, error: null } );
@@ -235,9 +235,9 @@ function handlers( user, userMutate, userFetch ) {
     }
 
     return {
-        firstNameChange,
-        emailChange,
-        passwordChange,
+        firstNameChangeCreateUser,
+        emailChangeCreateUser,
+        passwordChangeCreateUser,
         clickCreateUser,
         clickLoginUser,
         logInUser,

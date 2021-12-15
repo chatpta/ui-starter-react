@@ -92,7 +92,7 @@ function CreateAccountPage( props ) {
                             fullWidth
                             autoFocus
                             value={ user?.first_name || "" }
-                            onChange={ handle.firstNameChange( error, setError ) }
+                            onChange={ handle.firstNameChangeCreateUser( error, setError ) }
                             onBlur={ handle.handleNameBlur( error, setError ) }
                             error={ error?.name }
                             helperText={ error?.name ? "Must be present." : "" }
@@ -106,7 +106,7 @@ function CreateAccountPage( props ) {
                             required
                             fullWidth
                             value={ user?.email || "" }
-                            onChange={ handle.emailChange( error, setError ) }
+                            onChange={ handle.emailChangeCreateUser( error, setError ) }
                             onBlur={ handle.handleEmailBlur( error, setError ) }
                             error={ error?.email }
                             helperText={ error?.email ? "Email format not correct." : "" }
@@ -121,7 +121,7 @@ function CreateAccountPage( props ) {
                             required
                             fullWidth
                             value={ user?.password || "" }
-                            onChange={ handle.passwordChange( error, setError ) }
+                            onChange={ handle.passwordChangeCreateUser( error, setError ) }
                             onBlur={ handle.handlePasswordBlur( error, setError ) }
                             error={ error?.password }
                             helperText={ error?.password ? "Characters, number and special character [*#$%^...]." : "" }
