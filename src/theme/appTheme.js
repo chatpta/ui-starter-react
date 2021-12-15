@@ -11,7 +11,7 @@ const appTheme = createTheme( {
         cool: { main: green[ 700 ] },
         background: {
             main: "#faecd9",
-            default: blueGrey[ 900 ],
+            default: "#faecd9",
         },
         color: { main: "#222222" }
     },
