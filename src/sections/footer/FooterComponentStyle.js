@@ -19,7 +19,7 @@ const useFooterComponentStyle = makeStyles( theme => ( {
         minHeight: 160,
     },
     width: {
-        maxWidth: theme.dimensions.mainSectionWidth,
+        maxWidth: theme.dimensions.fullWidth,
         margin: "auto",
     },
     footerLinks: {
