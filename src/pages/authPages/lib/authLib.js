@@ -80,10 +80,15 @@ function handlers( user, userMutate, userFetch ) {
         }
     };
 
-    const firstNameChange = ( event ) => {
+    const firstNameChange = ( error, setError ) => ( event ) => {
 
+        setError( { ...error, name: false } )
         userMutate( { first_name: event.target.value } );
 
+    }
+
+    const handleNameBlur = ( error, setError ) => ( ) => {
+        setError( { ...error, name: true } );
     }
 
     const emailChange = ( event ) => {
@@ -202,6 +207,7 @@ function handlers( user, userMutate, userFetch ) {
         showRecordExistError,
         showAgreeToTermsAndConditions,
         clickRecoverPassword,
+        handleNameBlur
     };
 }
 

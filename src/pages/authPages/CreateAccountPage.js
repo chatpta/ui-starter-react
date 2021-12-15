@@ -20,11 +20,17 @@ import storeConnect from "../../store/storeConnectUserEdit";
 
 function CreateAccountPage( props ) {
     const { user, userFetch, userMutate, userReset } = props;
+    let navigate = useNavigate();
+    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
+    const classes = useCreateAccountElementStyle();
     const [ agree, setAgree ] = React.useState( false );
     const [ submit, setSubmit ] = React.useState( false );
-    const handle = lib.authLib.handlers( user, userMutate, userFetch, userReset );
-    let navigate = useNavigate();
-    const classes = useCreateAccountElementStyle();
+    const [ error, setError ] = React.useState( {
+        name: false,
+        email: false,
+        password: false
+    } );
+
 
     const handleAgreeChange = ( event ) => {
         setSubmit( false )
@@ -86,7 +92,10 @@ function CreateAccountPage( props ) {
                             fullWidth
                             autoFocus
                             value={ user?.first_name || "" }
-                            onChange={ handle.firstNameChange }
+                            onChange={ handle.firstNameChange( error, setError ) }
+                            onBlur={ handle.handleNameBlur( error, setError ) }
+                            error={ error?.name }
+                            helperText={ error?.name ? "Must be present." : "" }
                         />
                         <TextField
                             id="email"
