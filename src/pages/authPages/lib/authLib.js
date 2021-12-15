@@ -129,14 +129,21 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = ( userReset, agree, setSubmit ) => e => {
+    const clickCreateUser = ( userReset, agree, setSubmit, error ) => e => {
 
         e.stopPropagation();
         e.preventDefault();
 
         setSubmit( true );
 
-        if ( user?.first_name && user?.email && user?.password && agree ) {
+        if ( user?.first_name &&
+            user?.email &&
+            user?.password &&
+            agree &&
+            !error?.name &&
+            !error?.email &&
+            !error.password ) {
+
             let userReceived = JSON.stringify( {
                 user: {
                     first_name: user?.first_name,

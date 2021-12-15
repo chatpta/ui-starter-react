@@ -124,7 +124,7 @@ function CreateAccountPage( props ) {
                             onChange={ handle.passwordChange( error, setError ) }
                             onBlur={ handle.handlePasswordBlur( error, setError ) }
                             error={ error?.password }
-                            helperText={ error?.password ? "Should contain number, special character [*#$%^...]." : "" }
+                            helperText={ error?.password ? "Characters, number and special character [*#$%^...]." : "" }
                         />
                         <div style={ { display: "flex", justifyContent: "center" } }>
                             <FormControlLabel
@@ -141,7 +141,7 @@ function CreateAccountPage( props ) {
                             variant="contained"
                             size={ "large" }
                             sx={ { mt: 3, mb: 2 } }
-                            onClick={ handle.clickCreateUser( userReset, agree, setSubmit ) }
+                            onClick={ handle.clickCreateUser( userReset, agree, setSubmit, error ) }
                         >
                             Send
                         </Button>
