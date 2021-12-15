@@ -115,10 +115,22 @@ function handlers( user, userMutate, userFetch ) {
         }
     }
 
+    const emailChangeLogin = ( event ) => {
+
+        userMutate( { email: event.target.value, error: null, message: "" } );
+
+    }
+
     const emailChange = ( error, setError ) => ( event ) => {
 
         setError( { ...error, email: false } )
         userMutate( { email: event.target.value, error: null, message: "" } );
+
+    }
+
+    const passwordChangeLogin = ( event ) => {
+
+        userMutate( { password: event.target.value, error: null } );
 
     }
 
@@ -242,7 +254,9 @@ function handlers( user, userMutate, userFetch ) {
         clickRecoverPassword,
         handleNameBlur,
         handleEmailBlur,
-        handlePasswordBlur
+        handlePasswordBlur,
+        emailChangeLogin,
+        passwordChangeLogin
     };
 }
 

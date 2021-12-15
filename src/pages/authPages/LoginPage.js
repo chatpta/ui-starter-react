@@ -74,7 +74,7 @@ function LoginElement( props ) {
                             autoFocus
                             fullWidth
                             value={ user?.email || "" }
-                            onChange={ handle.emailChange }
+                            onChange={ handle.emailChangeLogin }
                         />
                         <TextField
                             id="password"
@@ -86,7 +86,7 @@ function LoginElement( props ) {
                             required
                             fullWidth
                             value={ user?.password || "" }
-                            onChange={ handle.passwordChange }
+                            onChange={ handle.passwordChangeLogin }
                         />
                         <div style={ { display: "flex", justifyContent: "center" } }>
                             <FormControlLabel

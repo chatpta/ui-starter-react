@@ -50,7 +50,7 @@ function RecoverPage( props ) {
                             autoFocus
                             fullWidth
                             value={ user?.email || "" }
-                            onChange={ handle.emailChange }
+                            onChange={ handle.emailChangeLogin }
                         />
                         <Button
                             style={ { marginTop: 8 } }
