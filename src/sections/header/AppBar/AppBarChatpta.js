@@ -11,6 +11,9 @@ import { pathAndURL } from "../../../config";
 
 import { handlers } from "./appBarLib";
 import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
+import Stack from "@mui/material/Stack";
+import Avatar from "@mui/material/Avatar";
+import { deepOrange } from "@mui/material/colors";
 
 
 function AppBarChatptaElement( props ) {
@@ -36,10 +39,15 @@ function AppBarChatptaElement( props ) {
     function renderButton( handlers ) {
         if ( handlers.isUserLoggedIn( user ) ) {
             return (
-                <Button
-                    color="secondary"
-                    onClick={ handleLogoutClick }
-                >Logout</Button>
+                <React.Fragment>
+                    <Button
+                        color="secondary"
+                        onClick={ handleLogoutClick }
+                    >Logout</Button>
+                    <Stack direction="row" spacing={ 2 }>
+                        <Avatar sx={{ bgcolor: deepOrange[500] }}>{ user?.name[0] }</Avatar>
+                    </Stack>
+                </React.Fragment>
             );
         } else {
             return (
