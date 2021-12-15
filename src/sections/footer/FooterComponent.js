@@ -100,17 +100,18 @@ export default function Footer() {
                 <div className={ classes.lowerFooterBox }>
                     <div className={ clsx( classes.width, classes.displayFlex ) }>
                         <Link to={ "/" }>
-                            <h5 className={ classes.noMargin }>© 2021, Chatpta.com, Inc.</h5>
+                            <h5 className={ clsx( classes.noMargin, classes.footerLinks ) }>© 2021, Chatpta.com,
+                                Inc.</h5>
                         </Link>
-                        <div className={ classes.moveUpLittle }>&nbsp; | &nbsp;</div>
+                        <div className={ classes.moveLittle }>&nbsp; | &nbsp;</div>
                         <Link to={ "/privacy-statement" }>
-                            <h5 className={ classes.noMargin }>
+                            <h5 className={ clsx( classes.noMargin, classes.footerLinks ) }>
                                 Privacy statement
                             </h5>
                         </Link>
-                        <div className={ classes.moveUpLittle }>&nbsp; | &nbsp;</div>
+                        <div className={ classes.moveLittle }>&nbsp; | &nbsp;</div>
                         <Link to={ "/terms-of-use" }>
-                            <h5 className={ classes.noMargin }>
+                            <h5 className={ clsx( classes.noMargin, classes.footerLinks ) }>
                                 Terms and conditions
                             </h5>
                         </Link>

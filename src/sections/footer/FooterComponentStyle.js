@@ -64,9 +64,9 @@ const useFooterComponentStyle = makeStyles( theme => ( {
             display: "none"
         }
     },
-    moveUpLittle: {
+    moveLittle: {
         position: "relative",
-        top: -2,
+        top: 4,
     },
     displayFlexMdUp: {
         '@media (min-width: 780px)': {
