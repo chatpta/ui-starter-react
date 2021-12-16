@@ -3,6 +3,7 @@ module.exports = {
     localRoot: "http://localhost:3001",
     paths: {
         root: "/",
+        apiVersion: "/v1",
         users: {
             root: "/users",
             login: "/login",
@@ -21,11 +22,14 @@ module.exports = {
     getRootPath: function () {
         return this.paths.root;
     },
+    getApiVersion: function () {
+        return this.paths.apiVersion;
+    },
     getHost: function () {
         return ( process?.env?.NODE_ENV === 'development' ? this.localRoot : this.root );
     },
     getHostApi: function () {
-        return ( process?.env?.NODE_ENV === 'development' ? this.getHost() : this.getHost() + "/api" );
+        return this.getHost() + "/api" + this.getApiVersion();
     },
     usersLoginPath: function () {
         return this.paths.users.root + this.paths.users.login;
