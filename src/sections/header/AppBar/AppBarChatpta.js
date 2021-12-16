@@ -17,7 +17,7 @@ import { deepOrange } from "@mui/material/colors";
 
 
 function AppBarChatptaElement( props ) {
-    const { user, userReset } = props;
+    const { user, userReset, transparent } = props;
     let navigate = useNavigate();
     const handle = handlers();
 
@@ -41,7 +41,7 @@ function AppBarChatptaElement( props ) {
             return (
                 <React.Fragment>
                     <Button
-                        color="secondary"
+                        color={ transparent ? "primary" : "secondary" }
                         onClick={ handleLogoutClick }
                     >Logout</Button>
                     <Stack direction="row" spacing={ 2 }>
@@ -54,7 +54,7 @@ function AppBarChatptaElement( props ) {
         } else {
             return (
                 <Button
-                    color="secondary"
+                    color={ transparent ? "primary" : "secondary" }
                     onClick={ handleLoginClick }
                 >Login</Button>
             );
@@ -63,12 +63,14 @@ function AppBarChatptaElement( props ) {
 
     return (
         <Box sx={ { flexGrow: 1 } }>
-            <AppBar position="static">
+            <AppBar position="static"
+                    color={ transparent ? "transparent" : "primary" }
+                    elevation={ transparent ? 0 : 10 }>
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
-                        color="secondary"
+                        color={ transparent ? "primary" : "secondary" }
                         aria-label="menu"
                         sx={ { mr: 2 } }
                     >

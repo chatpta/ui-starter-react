@@ -6,7 +6,7 @@ import Footer from "../sections/footer/FooterComponent";
 export default function HomePageView() {
     return (
         <div>
-            <AppBarChatpta/>
+            <AppBarChatpta transparent/>
             <LandingPage/>
             <Footer/>
         </div>
