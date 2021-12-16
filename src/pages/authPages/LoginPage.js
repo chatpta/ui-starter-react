@@ -68,7 +68,7 @@ function LoginElement( props ) {
                             id="email"
                             name="email"
                             margin="normal"
-                            label="Email Address"
+                            label="Email"
                             autoComplete="email"
                             required
                             autoFocus
