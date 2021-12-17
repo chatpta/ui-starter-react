@@ -5,7 +5,7 @@ module.exports = {
         root: "/",
         apiVersion: "/v1",
         users: {
-            root: "/users",
+            root: "/auth",
             login: "/login",
             register: "/register",
             recover: "/recover",
