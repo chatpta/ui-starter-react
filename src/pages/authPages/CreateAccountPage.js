@@ -12,7 +12,6 @@ import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 import lib from "./lib";
-import Copyright from "../../components/Copyright/Copyright";
 import { pathAndURL } from "../../config";
 import useCreateAccountElementStyle from "./lib/authStyle";
 import storeConnect from "../../store/storeConnectUserEdit";
@@ -155,7 +154,6 @@ function CreateAccountPage( props ) {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={ { mt: 8, mb: 0 } }/>
             </Container>
         </div>
     );

@@ -11,7 +11,6 @@ import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
 
 import { pathAndURL } from "../../config";
-import Copyright from "../../components/Copyright/Copyright";
 import lib from "./lib";
 import storeConnect from "../../store/storeConnectUserEdit";
 
@@ -73,7 +72,6 @@ function RecoverPage( props ) {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={ { mt: 8, mb: 0 } }/>
             </Container>
         </div>
     );

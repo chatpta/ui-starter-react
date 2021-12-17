@@ -12,7 +12,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import { pathAndURL } from "../../../config";
-import Copyright from "../../../components/Copyright/Copyright";
 import { handlers } from "./changePasswordLib";
 import useCreateLoginElementStyle from "../lib/authStyle";
 
@@ -98,7 +97,6 @@ function LoginElement( props ) {
                         </Grid>
                     </Box>
                 </Box>
-                <Copyright sx={ { mt: 8, mb: 4 } }/>
             </Container>
         </div>
     );
