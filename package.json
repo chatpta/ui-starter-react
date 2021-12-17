@@ -2,6 +2,7 @@
   "name": "starter-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://chatpta.ca/",
   "dependencies": {
     "@chatpta/redux-store-utility": "^0.0.1",
     "@chatpta/validate": "^2.0.4",
