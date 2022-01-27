@@ -25,7 +25,10 @@ const appTheme = createTheme( {
     components: {
         MuiButton: {
             styleOverrides: {
-                root: { height: 56 }
+                root: {
+                    textTransform: "none",
+                    fontWeight: "bold",
+                }
             }
         }
     }

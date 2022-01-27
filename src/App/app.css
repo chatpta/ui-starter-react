@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .App {
     min-height: 100vh;
     background-image: url("../assets/images/Sun-Tornado.svg");
@@ -8,9 +13,10 @@
 
 .overlay {
     min-height: 100vh;
-    background-color: rgb(250, 236, 217, .3);
+    background-color: rgba(236, 189, 128, 0.66);
 }
 
-p {
-    margin: 0;
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
 }

@@ -8,6 +8,10 @@ import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 import DefaultThemeProvider from "./theme/DefaultThemeProvider";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 
 ReactDOM.render(
