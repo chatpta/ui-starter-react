@@ -14,7 +14,7 @@ import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import { deepOrange } from "@mui/material/colors";
-import { t } from "../../../locale";
+import t from "../../../locale";
 
 
 function AppBarChatptaElement( props ) {
