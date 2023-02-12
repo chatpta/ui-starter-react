@@ -62,3 +62,65 @@ export function getBrowserLanguage() {
     }
 
 }
+
+export function isArrayWithItems( givenArray ) {
+
+    return !!( Array.isArray( givenArray ) && givenArray.length );
+
+}
+
+export function findFirstPreferredLanguageAvailable( availableLangArray = [] ) {
+
+    const browserLangArray = getBrowserLanguage();
+    let preferredLang = "en";
+
+    if ( !isArrayWithItems( browserLangArray ) ) {
+
+        return preferredLang;
+
+    } else {
+
+        for ( const lang of browserLangArray ) {
+
+            if ( availableLangArray.includes( lang ) ) {
+                return lang;
+            }
+
+        }
+
+        return preferredLang;
+    }
+
+}
+
+export function languagesAvailable( langObj = {} ) {
+
+    let languagesAvailable = [ "en" ];
+    let availableLang = Object.getOwnPropertyNames( langObj );
+
+    if ( isArrayWithItems( availableLang ) ) {
+
+        languagesAvailable = availableLang;
+
+    }
+
+    return languagesAvailable;
+
+}
+
+export function selectDisplayLanguage( languageObj = {} ) {
+
+    const availableLangArray = languagesAvailable( languageObj );
+
+    let displayLanguage = "en";
+
+    if ( !isArrayWithItems( availableLangArray ) ) {
+
+        return displayLanguage;
+
+    } else {
+
+        return findFirstPreferredLanguageAvailable( availableLangArray );
+
+    }
+}
