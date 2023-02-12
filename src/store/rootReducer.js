@@ -4,18 +4,17 @@
  ******************************************************************************/
 
 import { combineReducers } from "redux";
-import reduxStoreUtility from "@chatpta/redux-store-utility";
+import reduxStoreUtility from "./lib";
 
 // Note argument to createReducer is not case sensitive.
 const user = reduxStoreUtility.createReducer( "user" );
-const item = reduxStoreUtility.createReducer( "ITEM" );
-const items = reduxStoreUtility.createReducer( "Items" );
-
+const userProfile = reduxStoreUtility.createReducer( "User_Profile" );
+const visitor = reduxStoreUtility.createReducer( "visitor" );
 
 const app = combineReducers( {
     user: user.userReducer, // Note the prefix 'user' in userReducer
-    item: item.itemReducer,
-    items: items.itemsReducer,
+    user_profile: userProfile.user_profileReducer,
+    visitor: visitor.visitorReducer
 } );
 
 export default app;

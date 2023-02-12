@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import reduxStoreUtility from "@chatpta/redux-store-utility";
+import reduxStoreUtility from "./lib";
 
 const prSct = reduxStoreUtility.createActions( "User" );
 const userMutate = dispatch => keyValue => dispatch( prSct.userMutate( keyValue ) );
