@@ -41,7 +41,7 @@ function AppBarChatptaElement( props ) {
             return (
                 <React.Fragment>
                     <Button
-                        color={ transparent ? "primary" : "secondary" }
+                        color={ transparent ? "primary" : "inherit" }
                         onClick={ handleLogoutClick }
                     >Logout</Button>
                     <Stack direction="row" spacing={ 2 }>
@@ -54,7 +54,7 @@ function AppBarChatptaElement( props ) {
         } else {
             return (
                 <Button
-                    color={ transparent ? "primary" : "secondary" }
+                    color={ transparent ? "primary" : "inherit" }
                     onClick={ handleLoginClick }
                 >Login</Button>
             );
@@ -70,7 +70,7 @@ function AppBarChatptaElement( props ) {
                     <IconButton
                         size="large"
                         edge="start"
-                        color={ transparent ? "primary" : "secondary" }
+                        color={ transparent ? "primary" : "inherit" }
                         aria-label="menu"
                         sx={ { mr: 2 } }
                     >
