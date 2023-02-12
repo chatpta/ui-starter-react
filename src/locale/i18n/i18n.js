@@ -3,7 +3,7 @@
  * @param options
  * @returns {undefined|string[]}
  */
-export function getBrowserLocale( options = {} ) {
+function getBrowserLocale( options = {} ) {
     const defaultOptions = {
         languageCodeOnly: true,
     };
@@ -26,28 +26,13 @@ export function getBrowserLocale( options = {} ) {
     } );
 }
 
-export function saveBrowserLanguagePreference( language ) {
-
-    if ( language && ( typeof language ) === "string" ) {
-
-        localStorage.setItem( "language", language );
-
-    }
-}
-
-export function removeBrowserLanguagePreference() {
-
-    localStorage.removeItem( "language" );
-
-}
-
-export function getSavedBrowserLanguagePreference() {
+function getSavedBrowserLanguagePreference() {
 
     return localStorage.getItem( "language" );
 
 }
 
-export function getBrowserLanguage() {
+function getBrowserLanguage() {
 
     const savedPreference = getSavedBrowserLanguagePreference();
 
@@ -63,13 +48,13 @@ export function getBrowserLanguage() {
 
 }
 
-export function isArrayWithItems( givenArray ) {
+function isArrayWithItems( givenArray ) {
 
     return !!( Array.isArray( givenArray ) && givenArray.length );
 
 }
 
-export function findFirstPreferredLanguageAvailable( availableLangArray = [] ) {
+function findFirstPreferredLanguageAvailable( availableLangArray = [] ) {
 
     const browserLangArray = getBrowserLanguage();
     let preferredLang = "en";
@@ -93,7 +78,7 @@ export function findFirstPreferredLanguageAvailable( availableLangArray = [] ) {
 
 }
 
-export function languagesAvailable( langObj = {} ) {
+function languagesAvailable( langObj = {} ) {
 
     let languagesAvailable = [ "en" ];
     let availableLang = Object.getOwnPropertyNames( langObj );
@@ -123,4 +108,19 @@ export function selectDisplayLanguage( languageObj = {} ) {
         return findFirstPreferredLanguageAvailable( availableLangArray );
 
     }
+}
+
+export function saveBrowserLanguagePreference( language ) {
+
+    if ( language && ( typeof language ) === "string" ) {
+
+        localStorage.setItem( "language", language );
+
+    }
+}
+
+export function removeBrowserLanguagePreference() {
+
+    localStorage.removeItem( "language" );
+
 }
