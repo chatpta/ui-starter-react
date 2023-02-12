@@ -5,7 +5,7 @@
  */
 export function getBrowserLocale( options = {} ) {
     const defaultOptions = {
-        languageCodeOnly: false,
+        languageCodeOnly: true,
     };
     const opt = {
         ...defaultOptions,
@@ -24,4 +24,41 @@ export function getBrowserLocale( options = {} ) {
             ? trimmedLocale.split( /[-_]/ )[ 0 ]
             : trimmedLocale;
     } );
+}
+
+export function saveBrowserLanguagePreference( language ) {
+
+    if ( language && ( typeof language ) === "string" ) {
+
+        localStorage.setItem( "language", language );
+
+    }
+}
+
+export function removeBrowserLanguagePreference() {
+
+    localStorage.removeItem( "language" );
+
+}
+
+export function getSavedBrowserLanguagePreference() {
+
+    return localStorage.getItem( "language" );
+
+}
+
+export function getBrowserLanguage() {
+
+    const savedPreference = getSavedBrowserLanguagePreference();
+
+    if ( savedPreference ) {
+
+        return [ savedPreference, ...getBrowserLocale() ]
+
+    } else {
+
+        return getBrowserLocale();
+
+    }
+
 }
