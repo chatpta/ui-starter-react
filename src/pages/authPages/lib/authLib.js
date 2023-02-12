@@ -1,9 +1,11 @@
-import validate from "@chatpta/validate";
+import { isEmailString, isNameString, isSimplePasswordString } from "@chatpta/validate/lib/validate";
 import { pathAndURL } from "../../../config";
 import LoginErrorAlert from "../alert/LoginErrorAlert";
 import RecoverPasswordSendSuccessAlert from "../alert/RecoverPasswordSendSuccessAlert";
 import RecordExistErrorAlert from "../alert/RecordExistErrorAlert";
 import AgreeToTermsAndConditions from "../alert/AgreeToTermsAndConditions";
+import React from "react";
+import { getReq } from "../../lib/httpRequest";
 
 function handlers( user, userMutate, userFetch ) {
 
@@ -11,11 +13,24 @@ function handlers( user, userMutate, userFetch ) {
 
         if ( user?.jwt && user?.pending === false ) {
 
-            userReset( {
-                loggedIn: true,
-                jwt: user?.jwt,
-                name: user?.name
-            } );
+            if ( user?.email_not_confirmed ) {
+
+                userReset( {
+                    loggedIn: true,
+                    jwt: user?.jwt,
+                    name: user?.name,
+                    email_not_confirmed: user?.email_not_confirmed
+                } );
+
+            } else {
+
+                userReset( {
+                    loggedIn: true,
+                    jwt: user?.jwt,
+                    name: user?.name
+                } );
+
+            }
             return true;
         }
 
@@ -23,16 +38,23 @@ function handlers( user, userMutate, userFetch ) {
     };
 
     const saveUserInLocalStore = ( user, rememberMe ) => {
+
         if ( rememberMe ) {
+
             localStorage.setItem( "user", JSON.stringify( { ...user, loggedIn: true, } ) );
             return true;
+
         } else {
+
             return false;
+
         }
     }
 
     const deleteUserFromLocalStore = () => {
+
         localStorage.removeItem( "user" );
+
     }
 
     const logoutUser = ( user, userReset ) => {
@@ -46,38 +68,59 @@ function handlers( user, userMutate, userFetch ) {
     };
 
     const getUserName = ( user ) => {
+
         return user?.name;
+
     };
 
     const getJwt = ( user ) => {
+
         return user?.jwt;
+
     };
 
     const isUserLoggedIn = ( user ) => {
+
         return user?.loggedIn;
+
     };
 
     const showLoginErrorAlert = user => {
-        if ( user?.error === "validation_failure" || user?.error === "record_not_found" ) {
-            return ( <LoginErrorAlert/> )
+
+        if ( user?.error === "validation_failure" ||
+            user?.error === "record_not_found" ||
+            user?.error === "wrong_credentials"
+        ) {
+
+            return ( <LoginErrorAlert/> );
+
         }
     };
 
     const showRecoverPasswordAlert = user => {
+
         if ( user?.message === "please check your email" ) {
-            return ( <RecoverPasswordSendSuccessAlert/> )
+
+            return ( <RecoverPasswordSendSuccessAlert/> );
+
         }
     };
 
     const showRecordExistError = user => {
-        if ( user?.error === "record_exist" || user?.error === "wrong_credentials" ) {
-            return ( <RecordExistErrorAlert/> )
+
+        if ( user?.error === "record_save_failure" ) {
+
+            return ( <RecordExistErrorAlert/> );
+
         }
     };
 
     const showAgreeToTermsAndConditions = ( submit, agree ) => {
+
         if ( submit && ( !agree ) ) {
+
             return ( <AgreeToTermsAndConditions/> );
+
         }
     };
 
@@ -90,28 +133,53 @@ function handlers( user, userMutate, userFetch ) {
 
     const handleNameBlur = ( error, setError ) => ( event ) => {
 
-        if ( validate.isCharactersString( event?.target?.value ) ) {
+        if ( !event?.target?.value ||
+            isNameString( event?.target?.value ) ) {
+
             setError( { ...error, name: false } );
+
         } else {
+
             setError( { ...error, name: true } );
+
         }
     }
 
     const handleEmailBlur = ( error, setError ) => ( event ) => {
 
-        if ( validate.isEmailString( event?.target?.value ) ) {
+        if ( !( event?.target?.value ) ||
+            isEmailString( event?.target?.value?.trim() ) ) {
+
             setError( { ...error, email: false } );
+
+            if ( event?.target?.value ) {
+                fetch( getReq( pathAndURL.isEmailExistURLAuth( event?.target?.value ) ) )
+                    .then( res => res.json() )
+                    .then( res => {
+                        if ( res?.email_exist ) {
+                            setError( { ...error, emailExist: true } );
+                        }
+                    } );
+            }
+
         } else {
+
             setError( { ...error, email: true } );
+
         }
     }
 
     const handlePasswordBlur = ( error, setError ) => ( event ) => {
 
-        if ( validate.isPasswordString( event?.target?.value ) ) {
+        if ( !( event?.target?.value ) ||
+            isSimplePasswordString( event?.target?.value ) ) {
+
             setError( { ...error, password: false } );
+
         } else {
+
             setError( { ...error, password: true } );
+
         }
     }
 
@@ -123,7 +191,7 @@ function handlers( user, userMutate, userFetch ) {
 
     const emailChangeCreateUser = ( error, setError ) => ( event ) => {
 
-        setError( { ...error, email: false } )
+        setError( { ...error, email: false, emailExist: false } )
         userMutate( { email: event.target.value, error: null, message: "" } );
 
     }
@@ -141,7 +209,7 @@ function handlers( user, userMutate, userFetch ) {
 
     }
 
-    const clickCreateUser = ( userReset, agree, setSubmit, error ) => e => {
+    const clickCreateUser = ( userReset, agree, setSubmit, error, setError ) => e => {
 
         e.stopPropagation();
         e.preventDefault();
@@ -164,6 +232,12 @@ function handlers( user, userMutate, userFetch ) {
                 }
             } );
             userReset( {} );
+            setError( {
+                name: false,
+                email: false,
+                password: false,
+                emailExist: false,
+            } )
             userFetch( postReqCreateUser( userReceived ) );
         }
 
@@ -183,7 +257,7 @@ function handlers( user, userMutate, userFetch ) {
                     password: user?.password
                 }
             } );
-            userMutate( { password: "" } );
+            userMutate( { password: "", email: "" } );
             userFetch( postReqLoginUser( userReceived ) );
 
         }
@@ -209,15 +283,21 @@ function handlers( user, userMutate, userFetch ) {
     }
 
     function postReqRecoverPassword( body ) {
-        return postReq( body, pathAndURL.usersPasswordRecoverURL() )
+
+        return postReq( body, pathAndURL.authUsersPasswordRecoverURL() )
+
     }
 
     function postReqLoginUser( body ) {
-        return postReq( body, pathAndURL.usersLoginURL() )
+
+        return postReq( body, pathAndURL.authUsersLoginURL() )
+
     }
 
     function postReqCreateUser( body ) {
-        return postReq( body, pathAndURL.usersRegisterURL() )
+
+        return postReq( body, pathAndURL.authUsersRegisterURL() )
+
     }
 
     function postReq( body, url ) {

@@ -10,7 +10,7 @@ export default function RecordExistErrorAlert() {
             <Alert severity="info">
                 Account exist by this email
                 <strong>
-                    <Link to={ pathAndURL.usersPasswordRecoverPath() }
+                    <Link to={ pathAndURL.authUsersPasswordRecoverPath() }
                           style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                         { " Recover password." }
                     </Link>

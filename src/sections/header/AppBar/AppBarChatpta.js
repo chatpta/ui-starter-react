@@ -24,7 +24,7 @@ function AppBarChatptaElement( props ) {
     function handleLoginClick( event ) {
         event.preventDefault();
         event.stopPropagation();
-        navigate( pathAndURL.usersLoginPath() );
+        navigate( pathAndURL.authUsersLoginPath() );
     }
 
     function handleLogoutClick( event ) {
@@ -33,7 +33,7 @@ function AppBarChatptaElement( props ) {
 
         handle.deleteUserFromLocalStore();
         handle.logoutUser( user, userReset );
-        navigate( pathAndURL.getRootPath() );
+        navigate( pathAndURL.rootPath() );
     }
 
     function renderButton( handlers ) {

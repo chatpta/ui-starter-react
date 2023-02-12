@@ -1,27 +1,27 @@
 import StoreConnectUserEdit from "../../../store/storeConnectUserEdit";
 import React from 'react';
 import { useEffect } from "react";
+import { isPasswordStringFailureMessage } from "@chatpta/validate/lib/validate";
+import { Link, useNavigate } from "react-router-dom";
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Link, useNavigate } from "react-router-dom";
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import { pathAndURL } from "../../../config";
 import { handlers } from "./changePasswordLib";
-import useCreateLoginElementStyle from "../lib/authStyle";
+import { AuthContainer, FormBox, FormBoxContainer } from "../lib/authElements";
 
 
 function LoginElement( props ) {
     const { user, userFetch, userMutate, userReset } = props;
     const handle = handlers( user, userMutate, userFetch, userReset );
+    const [ error, setError ] = React.useState( { password: false } );
     let navigate = useNavigate();
-
-    const classes = useCreateLoginElementStyle();
 
 
     useEffect( () => {
@@ -33,19 +33,18 @@ function LoginElement( props ) {
     );
 
     return (
-        <div className={ classes.container }>
+        <AuthContainer>
             <Container component="main" maxWidth="sm">
-                <Box className={ classes.formBox }>
+                <FormBoxContainer>
                     <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
                         <LockOutlinedIcon/>
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Change password
                     </Typography>
-                    <Box
+                    <FormBox
                         component="form"
-                        noValidate sx={ { mt: 1 } }
-                        className={ classes.form }
+                        noValidate
                     >
                         <TextField
                             id="password"
@@ -58,6 +57,9 @@ function LoginElement( props ) {
                             fullWidth
                             value={ user?.password || "" }
                             onChange={ handle.passwordChange }
+                            onBlur={ handle.handlePasswordBlur( error, setError ) }
+                            error={ error?.password }
+                            helperText={ error?.password ? isPasswordStringFailureMessage( user?.password ) : "" }
                         />
                         <TextField
                             id="password_confirm"
@@ -83,22 +85,22 @@ function LoginElement( props ) {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link to={ pathAndURL.usersPasswordRecoverPath() }
+                                <Link to={ pathAndURL.authUsersPasswordRecoverPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     Forgot password?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link to={ pathAndURL.usersRegisterPath() }
+                                <Link to={ pathAndURL.authUsersRegisterPath() }
                                       style={ { textDecoration: 'none', color: "black", fontSize: 16 } }>
                                     { "Don't have an account? Sign Up" }
                                 </Link>
                             </Grid>
                         </Grid>
-                    </Box>
-                </Box>
+                    </FormBox>
+                </FormBoxContainer>
             </Container>
-        </div>
+        </AuthContainer>
     );
 }
 

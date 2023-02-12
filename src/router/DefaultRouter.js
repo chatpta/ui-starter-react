@@ -22,11 +22,11 @@ function AppRouter() {
         <BrowserRouter>
             <Suspense fallback={ <Loading/> }>
                 <Routes>
-                    <Route exact path={ pathAndURL.getRootPath() } element={ <HomePageView/> }/>
-                    <Route path={ pathAndURL.usersLoginPath() } element={ <UserLoginView/> }/>
-                    <Route path={ pathAndURL.usersRegisterPath() } element={ <UserCreateAccountView/> }/>
-                    <Route path={ pathAndURL.usersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
-                    <Route path={ pathAndURL.usersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
+                    <Route exact path={ pathAndURL.rootPath() } element={ <HomePageView/> }/>
+                    <Route path={ pathAndURL.authUsersLoginPath() } element={ <UserLoginView/> }/>
+                    <Route path={ pathAndURL.authUsersRegisterPath() } element={ <UserCreateAccountView/> }/>
+                    <Route path={ pathAndURL.authUsersPasswordRecoverPath() } element={ <UserRecoverPasswordView/> }/>
+                    <Route path={ pathAndURL.authUsersChangePasswordPath() } element={ <UserChangePasswordView/> }/>
                     <Route path={ pathAndURL.legalTermsOfUsePath() } element={ <TermsOfUseView/> }/>
                     <Route path="*" element={ <NotFoundPageView/> }/>
                 </Routes>
