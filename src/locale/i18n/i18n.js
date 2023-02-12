@@ -110,6 +110,14 @@ export function selectDisplayLanguage( languageObj = {} ) {
     }
 }
 
+export function selectEnglishOrFrench( languageObj ) {
+
+    let isFrench = ( selectDisplayLanguage( languageObj ) === "fr" );
+
+    return isFrench ? { name: "English", code: "en" } : { name: "Français", code: "fr" };
+
+}
+
 export function saveBrowserLanguagePreference( language ) {
 
     if ( language && ( typeof language ) === "string" ) {
