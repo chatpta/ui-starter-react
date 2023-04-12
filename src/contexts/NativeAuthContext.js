@@ -17,9 +17,9 @@ import Loader from "components/Loader";
 
 // ==============================|| AUTH0 CONTEXT & PROVIDER ||============================== //
 
-const LlifContext = createContext( null );
+const NativeAuthContext = createContext( null );
 
-export const LlifProvider = ( { children } ) => {
+export const NativeAuthProvider = ( { children } ) => {
 
     const dispatch = useDispatch();
     const authState = useSelector( selectAuth );
@@ -63,7 +63,7 @@ export const LlifProvider = ( { children } ) => {
     }
 
     return (
-        <LlifContext.Provider
+        <NativeAuthContext.Provider
             value={ {
                 ...authState,
                 loginUser,
@@ -76,12 +76,12 @@ export const LlifProvider = ( { children } ) => {
             } }
         >
             { children }
-        </LlifContext.Provider>
+        </NativeAuthContext.Provider>
     );
 };
 
-LlifProvider.propTypes = {
+NativeAuthProvider.propTypes = {
     children: PropTypes.node
 };
 
-export default LlifContext;
+export default NativeAuthContext;

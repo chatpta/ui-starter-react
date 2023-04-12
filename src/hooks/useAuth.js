@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 // auth provider
-import AuthContext from 'contexts/LlifContext';
+import AuthContext from 'contexts/NativeAuthContext';
 
 // ==============================|| AUTH HOOKS ||============================== //
 

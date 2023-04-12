@@ -3,17 +3,17 @@ import "./App.css";
 import ThemeCustomization from "themes";
 import ScrollTop from "components/ScrollTop";
 import Routes from "routes";
-import { LlifProvider as AuthProvider } from "contexts/LlifContext";
+import { NativeAuthProvider } from "contexts/NativeAuthContext";
 
 function App() {
   return (
     <ThemeCustomization>
       <ScrollTop>
-        <AuthProvider>
+        <NativeAuthProvider>
           <>
             <Routes />
           </>
-        </AuthProvider>
+        </NativeAuthProvider>
       </ScrollTop>
     </ThemeCustomization>
   );
