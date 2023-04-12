@@ -1,20 +1,22 @@
-import DefaultRouter from "../router/DefaultRouter";
-import "./app.css";
-import { GlobalStyles } from "@mui/material";
-import LoadVisitorToken from "../componentsRunOnLoad/visitorToken/LoadVisitorToken";
-import LoadUserProfile from "../componentsRunOnLoad/UserProfile/LoadUserProfile";
+import React from "react";
+import "./App.css";
+import ThemeCustomization from "themes";
+import ScrollTop from "components/ScrollTop";
+import Routes from "routes";
+import { LlifProvider as AuthProvider } from "contexts/LlifContext";
 
 function App() {
-    return (
-        <div className="App">
-            <div className={ "overlay" }>
-                <GlobalStyles styles={ { body: { backgroundColor: "rgb(26, 35, 39)" } } }/>
-                <LoadVisitorToken/>
-                <LoadUserProfile/>
-                <DefaultRouter/>
-            </div>
-        </div>
-    );
+  return (
+    <ThemeCustomization>
+      <ScrollTop>
+        <AuthProvider>
+          <>
+            <Routes />
+          </>
+        </AuthProvider>
+      </ScrollTop>
+    </ThemeCustomization>
+  );
 }
 
 export default App;
