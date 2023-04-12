@@ -6,6 +6,7 @@ import Loadable from "components/Loadable";
 import AuthRoutes from "./AuthRoutes";
 import PublicRoutes from "./PublicRoutes";
 import ProtectedRoutes from "./ProtectedRoutes";
+import FallbackRoutes from "./FallbackRoutes";
 
 // render - landing page
 const PagesLanding = Loadable( lazy( () => import("pages/landing/LandingPage") ) );
@@ -20,6 +21,7 @@ export default function ThemeRoutes() {
     },
     PublicRoutes,
     ProtectedRoutes,
-    AuthRoutes
+    AuthRoutes,
+    FallbackRoutes
   ] );
 }
